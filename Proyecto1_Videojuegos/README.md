@@ -1,52 +1,76 @@
-README — Proyecto 1: Análisis de Ventas de Videojuegos (Excel + Power BI)
-Descripción del Proyecto:
+Proyecto 1 — Análisis de Ventas de Videojuegos (Excel + Power BI)
+Descripción general:
+.Este proyecto analiza un dataset histórico de ventas de videojuegos en diferentes regiones, plataformas, géneros y años.
+.El objetivo principal es comprender cómo evolucionaron las ventas globales y detectar patrones relevantes dentro de la industria gaming.
 
-Este proyecto analiza un dataset histórico de ventas de videojuegos por año, plataforma, género y región.
-Tiene como objetivo identificar tendencias en la industria gaming y visualizar cómo evolucionaron las ventas en distintas plataformas y mercados globales.
-El análisis fue realizado con Excel (limpieza y exploración) y Power BI (visualización completa).
+El análisis se realizó con:
+.Excel (limpieza y exploración)
+.Power BI (visualización y storytelling)
 
-Objetivos del Análisis:
-.Identificar cuáles fueron los videojuegos más vendidos.
-.Detectar tendencias por año y ver picos de ventas.
-.Analizar la distribución de ventas por región (Norteamérica, Europa, Japón, Otros).
-.Evaluar el rendimiento por plataforma (PS2, DS, Wii, etc.).
-.Comparar ventas por género (Action, Sports, Shooter, RPG, etc.)
+Objetivos del análisis:
+.Identificar los videojuegos más vendidos históricamente
+.Detectar tendencias de ventas por año
+.Analizar la participación por región
+.Comparar el rendimiento entre plataformas
+.Evaluar cuáles son los géneros más consumidos
+.Crear un dashboard interactivo para explorar el dataset
 
-Herramientas Utilizadas:
-.Excel → Limpieza del dataset
-.Power BI → Dashboard interactivo
+Herramientas utilizadas:
+Excel:
+  Limpieza de variables
+  Corrección de valores faltantes / nulos
+  Revisión de tipologías (numéricas, texto, categorías)
 
-Gráficos utilizados:
--Barras apiladas
--Columnas por año
--Tortas de distribución por región
--Tablas simples
--Segmentadores por categoría
+Power BI:
+  KPI
+  Tablas y gráficos comparativos
+  Segmentadores (Año, Región, Género, Plataforma, Editorial)
+  Storytelling visual
 
-Principales Insights:
-Juegos más vendidos
-Wii Sports, Super Mario Bros y Mario Kart Wii dominan el ranking histórico.
+Visualizaciones utilizadas:
+  Barras apiladas por año y región
+  Columnas por plataforma y region
+  Columnas por genero y region
+  Dona de participación (regional share)
+  Tablas de ranking
 
-Ventas por región
-Norteamérica y Europa concentran más del 75% de las ventas totales.
-Japón tiene una participación fuerte en RPG y plataformas Nintendo.
+Principales insights
+1. Juegos más vendidos
+Los títulos más exitosos incluyen:
+  Wii Sports
+  Super Mario Bros
+  Mario Kart Wii
+Son sagas que dominan año tras año las ventas globales.
 
-Plataformas dominantes
-Las consolas Wii, DS y PS2 lideran la venta de copias.
+2.Ventas por región
+  Norteamérica + Europa representan más del 75% del total
+  Japón tiene gran peso en RPG y plataformas Nintendo
+  La región "Otros" tiene participación menor pero estable
 
-Géneros
-Los géneros Action, Sports y Shooter son los más fuertes a nivel global.
+3.Plataformas con mejor rendimiento
+Las consolas con más ventas acumuladas:
+  PS2
+  X360
+  PS3
+
+4. Géneros más populares
+  Action
+  Sports
+  Shooter
+  RPG
+Estos cuatro representan la mayor parte del mercado.
+
 
 Habilidades demostradas:
-Limpieza de datos (Excel)
-Modelado de datos
-Diseño de dashboard en Power BI
-Análisis Exploratorio de Datos (EDA)
-Storytelling con visualizaciones
+.Limpieza y estructura de datos (Excel)
+.EDA (Análisis Exploratorio)
+.Modelado simple para visualización
+.Diseño de dashboard profesional
+.Insights y storytelling visual
+.Análisis por categorías, regiones y tiempo
 
-Contacto
-Facundo Mazzieri
-📧 facundodantemazz@gmail.com
-
-
+Archivos incluidos
+Proyecto 1.xlsx → dataset limpio
+Proyecto 1.pbix → dashboard Power BI
+Proyecto 1.pdf → reporte exportado
 
