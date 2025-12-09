@@ -1,75 +1,80 @@
-Proyecto 2 — Análisis de Productos Appol (Excel + Power BI)
-Descripción general:
-Este proyecto analiza un dataset de productos de la marca ficticia Appol, incluyendo información de precios, costos, utilidades y márgenes por país, continente y año.
+# Proyecto 2 — Análisis de Productos Appol (Excel + Power BI)
+
+## Descripción general
+Este proyecto analiza un dataset de productos de la marca ficticia **Appol**, incluyendo información de precios, costos, utilidad y margen por país y continente.
+
 El objetivo principal es identificar:
-.Los países y continentes más rentables
-.El margen promedio por región
-.La utilidad total por año y trimestre
-.Oportunidades estratégicas de mejora
-.Comportamientos y tendencias comerciales
+- Los países más rentables  
+- El margen promedio por región  
+- La utilidad total por continente  
+- Tendencias año–trimestre–continente  
+- Oportunidades estratégicas basadas en márgenes  
 
-Todo el análisis se realizó en Excel (cleaning + cálculos) y se visualizó mediante un Dashboard interactivo en Power BI.
+Todo el análisis fue realizado en **Excel** y visualizado mediante un **Dashboard en Power BI**.
 
-Objetivos del proyecto:
-.Calcular la utilidad total por país, trimestre y continente.
-.Determinar el margen promedio y los países con mejor rendimiento.
-.Visualizar cómo varían utilidad y márgenes por año, trimestre y región.
-.Comparar continentes según utilidad total y margen.
-.Construir un dashboard que permita filtrar y explorar la información fácilmente.
+---
 
-Herramientas utilizadas:
-Excel:
-.Limpieza del dataset
-.Cálculo de:
-  Utilidad
-  Margen %
-  Totales por año y continentes
-  Organización y normalización de tablas
+## Objetivos del proyecto
+- Calcular la utilidad por país, trimestre y continente.  
+- Determinar el margen promedio y los países con mejor rendimiento.  
+- Visualizar cómo varían los márgenes y utilidad total por año y continente.  
+- Comparar continentes según utilidad total y margen.  
+- Crear un dashboard que permita filtrar y explorar fácilmente la información.  
 
-Power BI:
-.KPIs de utilidad total y margen
-.Mapa geográfico interactivo
-.Gráficos comparativos:
-  Barras
-  Columnas
-  Líneas temporales
-.Segmentadores por:
-  Año
-  Continente
-  Categoría de producto
-  Tipo de producto
+---
 
-Métricas principales:
-.Utilidad Total: 671 millones
-.Margen Promedio: 19,95%
-.Continente más rentable: América
-.Continente de menor utilidad: Oceanía
-.Año más rentable: 2021
+## Herramientas utilizadas
+**Excel**
+- Limpieza del dataset  
+- Cálculo de utilidad y margen  
+- Tablas ordenadas  
 
-Visualizaciones del Dashboard:
+**Power BI**
+- KPI de utilidad total  
+- Mapa geográfico interactivo  
+- Gráficos de barras, columnas y líneas  
+- Segmentaciones por Año, Continente, Categoría y Tipo de producto  
+
+---
+
+## Métricas principales
+- **Utilidad Total:** 671 millones  
+- **Margen Promedio:** 19,95%  
+- **Continente con mayor utilidad:** América  
+- **Continente con menor utilidad:** Oceanía  
+- **Año más rentable:** 2021  
+
+---
+
+## Visualizaciones del Dashboard
 El dashboard incluye:
-.KPI de Utilidad y Margen
-.Mapa interactivo por país y continente
-.Barras comparativas entre continentes y años
-.Línea temporal por año–trimestre–continente
-.Tabla detallada con utilidad y margen por país
-.Segmentaciones por:
-  Año
-  Continente
-  Categoría
-  Tipo de producto
+- KPI de Utilidad y Margen  
+- Mapa interactivo por país y continente  
+- Barras comparativas por continente y año  
+- Línea temporal por año–trimestre–continente  
+- Tabla detallada por país con su utilidad y margen  
 
-Archivos incluidos:
-.appol.xlsx → Dataset limpio
-.proyecto 2.pbix → Dashboard en Power BI
-.proyecto 2.pdf → Exportación del reporte
-.README.md → Descripción completa del proyecto
+**Segmentadores:**
+- Año  
+- Continente  
+- Categoría de producto  
+- Tipo de producto  
 
-Conclusiones:
-.América es el continente más sólido en utilidad total.
-.Europa mantiene buenos márgenes, pero menor volumen comercial.
-.Asia muestra alta utilidad pero márgenes más bajos.
-.Oceanía es el mercado más débil en participación.
-.El análisis por trimestre revela fluctuaciones importantes que pueden guiar decisiones estratégicas y de inversión.
+---
+
+## Archivos incluidos
+- **appol.xlsx** → Dataset limpio  
+- **proyecto_2.pbix** → Dashboard en Power BI  
+- **proyecto_2.pdf** → Exportación del reporte  
+- **README.md** → Este archivo con la explicación del proyecto  
+
+---
+
+## Conclusiones
+- **América** es el continente más fuerte, con la mayor utilidad acumulada.  
+- **Europa** tiene buen margen, pero menor volumen total.  
+- **Asia** presenta utilidad alta pero márgenes más bajos.  
+- **Oceanía** es el mercado más débil en participación.  
+- El análisis trimestral muestra variaciones importantes útiles para planificación estratégica.
 
 
