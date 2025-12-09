@@ -1,92 +1,56 @@
 Proyecto 1 — Análisis de Ventas de Videojuegos (Excel + Power BI)
-📌 Descripción del Proyecto
-
+Descripción del Proyecto
 Este proyecto analiza un dataset de ventas de videojuegos a nivel mundial.
 El objetivo fue identificar tendencias por año, plataforma, género y región, además de visualizar el comportamiento histórico de la industria.
-
 Se realiza un análisis completo utilizando Excel para la limpieza inicial y Power BI para la visualización interactiva.
 
-🎯 Objetivos del análisis
-
+Objetivos del análisis:
 Detectar los videojuegos más vendidos de la historia.
-
 Comparar ventas por región (Norteamérica, Europa, Japón y Otros).
-
 Analizar ventas por plataforma (PS2, Wii, DS, PS3, etc.).
-
 Identificar tendencias históricas de ventas por año.
-
 Evaluar el rendimiento por género (Action, Sports, Role-Playing, etc.).
 
-🛠 Herramientas utilizadas
-
+Herramientas utilizadas
 Microsoft Excel
-
 Limpieza y organización de datos.
-
 Preparación del dataset.
-
 Power BI
-
 Modelado de datos.
-
 Creación del dashboard dinámico.
-
 Visualizaciones comparativas por categoría.
-
-📈 Visualizaciones principales (incluidas en el PDF/dashboard)
-
+Visualizaciones principales (incluidas en el PDF/dashboard)
 Top 10 videojuegos más vendidos
-
 Ventas por año y región
-
 Comparación de plataformas por volumen de ventas
-
 Ventas por género y región
-
 Distribución global del mercado
 
-🧩 Insights destacados
-
+Insights destacados
 La plataforma con mayor venta acumulada fue Wii / PS2, dependiendo la región.
-
 Los géneros Action y Sports lideran mundialmente.
-
 Norteamérica y Europa representan más del 75% del mercado total.
-
 Entre 2005 y 2010 la industria alcanzó su mayor pico de crecimiento.
 
-📁 Archivos incluidos
-
+Archivos incluidos
 videojuegos_dataset.xlsx — Dataset limpio.
-
 videojuegos_dashboard.pbix — Dashboard interactivo en Power BI.
-
 videojuegos_reporte.pdf — Informe exportado desde Power BI.
 
 README.md — (este archivo)
 
-🚀 Habilidades aplicadas
-
+Habilidades aplicadas
 Análisis exploratorio de datos (EDA)
-
 Limpieza y modelado de datos
-
 DAX básico
-
 Visualización profesional
-
 Interpretación de métricas y tendencias
 
-📬 Contacto
-
+Contacto
 Si querés ver más proyectos:
+facundodantemazz@gmail.com
+GitHub: tu repositorio
 
-📧 facundodantemazz@gmail.com
-
-🌎 GitHub: tu repositorio
-
-🏁 Estado del proyecto
-
-✔ Finalizado
+Estado del proyecto
+ Finalizado
 Añadido al portafolio como Proyecto 1.
