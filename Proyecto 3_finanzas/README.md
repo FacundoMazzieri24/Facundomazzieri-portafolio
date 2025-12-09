@@ -47,8 +47,8 @@ El dashboard incluye:
 ---
 
 ##  Principales Insights
-- Países fuertes como Canadá, Alemania y China lideran el profit.
-- Productos como Paseo, VTT y Carretera generan los mayores ingresos.
+- Países fuertes como Canadá, Alemania y Francia lideran el profit.
+- Productos como Paseo, VTT y Velo generan los mayores ingresos.
 - El promedio mensual muestra fluctuaciones estacionales útiles para planificación.
 - El profit crece entre 2013 y 2014 con tendencias claras de expansión.
 
@@ -56,9 +56,9 @@ El dashboard incluye:
 
 ##  Archivos Incluidos
 Dentro de esta carpeta se encuentran:
-- `finanzas.xlsx` → Dataset limpio y preparado.
-- `proyecto_3.pbix` → Dashboard completo en Power BI.
-- `proyecto_3.pdf` → Versión exportada del reporte.
+- `Financial Sample.xlsx` → Dataset limpio y preparado.
+- `proyecto 3.pbix` → Dashboard completo en Power BI.
+- `proyecto 3.pdf` → Versión exportada del reporte.
 - `README.md` → Este archivo con toda la explicación.
 
 ---
