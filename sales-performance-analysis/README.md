@@ -48,7 +48,7 @@ The analysis focuses on answering the following questions:
 ---
 
 ## Dashboard Preview
-![Dashboard Preview](Images/Dashboard.pdf)
+![Dashboard Preview](Images/dashboard_overview.jpg)
 
 ---
 
