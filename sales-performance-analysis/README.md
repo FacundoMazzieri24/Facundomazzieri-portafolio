@@ -60,6 +60,6 @@ sales-performance-analysis/
 ├── Power BI/
 │   └── sales_dashboard.pbix
 └── Images/
-    └── Dashboard.png
-
+    └── dashboard_overview.jpg
+    └── dashboard_details.jpg
 
