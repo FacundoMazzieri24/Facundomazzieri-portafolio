@@ -1,84 +1,97 @@
-# Portafolio de Análisis de Datos — Facundo Mazzieri
+# Data Analytics Portfolio — Facundo Mazzieri
 
-¡Bienvenido/a! Este repositorio reúne mis proyectos más importantes realizados con SQL, Excel, Power BI y técnicas de Análisis Exploratorio de Datos (EDA).  
-Mi objetivo es mostrar mi evolución como Analista de Datos y demostrar mis habilidades técnicas aplicadas a datasets reales.
+Welcome! This repository contains my data analytics portfolio, showcasing projects developed using SQL, Excel, Power BI, and exploratory data analysis techniques.
+
+The goal of this portfolio is to demonstrate my technical skills, analytical thinking, and progression as a Data Analyst through real-world datasets and business-oriented analyses.
 
 ---
 
-## Sobre mí
-Soy **Facundo Mazzieri**, estudiante de Marketing y en formación como Analista de Datos.  
-Trabajo con herramientas como:
+## About Me
+I'm **Facundo Mazzieri**, a Marketing student with a strong interest in Data Analytics and Business Intelligence.
 
+I work with tools such as:
 - SQL (PostgreSQL, pgAdmin)
 - Excel / Power Query
 - Power BI
-- Análisis Exploratorio de Datos (EDA)
-- CSV, limpieza y transformación de datos
+- Exploratory Data Analysis (EDA)
+- Data cleaning and transformation (CSV, structured datasets)
 
 ---
 
-## Proyectos Destacados
-A continuación encontrarás la lista completa de mis proyectos, cada uno con su descripción, objetivos, herramientas utilizadas y resultados.
+## Portfolio Structure
+Projects are organized by skill level to clearly show progression:
 
-### 1. Sales Performance Analysis — SQL + Power BI (Kaggle)
-Análisis de performance de ventas utilizando un dataset de Kaggle.  
-Incluye análisis temporal, ranking de ciudades, estacionalidad y visualización de KPIs clave en Power BI.  
-Proyecto enfocado en responder preguntas de negocio y proponer acciones basadas en datos.  
-📎 *Proyecto documentado en inglés.*
+- **entry-level/**: foundational projects documented in Spanish, focused on data cleaning, basic analysis, and visualization
+- **junior-level/**: more advanced projects documented in English, focused on SQL analysis, business questions, and complete dashboards
 
-### 2. Ventas — SQL + Power BI
-Proyecto completo donde migro datos desde Excel a PostgreSQL.  
-Creo tablas, inserto datos, realizo consultas SQL y luego conecto la base a Power BI para construir un dashboard visual.
+---
 
-### 3. Videojuegos — Excel + Power BI
-Análisis de un dataset de videojuegos con métricas de ventas, categorías, plataformas y tendencias.  
-Incluye limpieza de datos, tablas dinámicas, KPIs y dashboard.
+## Junior-Level Projects
 
-### 4. Appol (Productos y Datos) — Excel + Power BI
-Análisis de productos, precios, márgenes y comportamiento general de venta.  
-Incluye limpieza avanzada, Power Query y dashboard final.
+###  Sales Performance Analysis — SQL + Power BI (Kaggle)
+Business-oriented sales analysis using a Kaggle dataset.  
+Includes time-based analysis, city performance ranking, seasonality detection, and KPI visualization.
 
-### 5. Finanzas Personales — Excel + Power BI
+ Focus: business questions, insights, and data-driven recommendations  
+📎 Project documentation available in English
+
+---
+
+###  Naruto Episodes Analysis — SQL + Power BI
+Exploratory analysis of Naruto episode ratings to compare canon and filler episodes, evaluate saga performance, and analyze rating trends over time.
+
+ Focus: SQL views, analytical storytelling, and dashboard development  
+📎 Includes SQL queries, Power BI dashboard, and PDF export
+
+---
+
+## Entry-Level Projects (Spanish Documentation)
+
+###  Proyecto 3_finanzas — Excel + Power BI
 Dashboard financiero para analizar ingresos, gastos, categorías y tendencias mensuales.  
-Incluye KPIs, segmentadores y gráficos comparativos.
-
-### 6. Proyecto Lechuga — Excel + SMART + SOW + Power BI
-Proyecto del Certificado de Google Data Analytics que incluye:
-- Metodología SMART
-- Análisis SOW
-- Limpieza y transformación en Excel
-- Dashboard en Power BI
-
-### 7. IVA Anual — Excel + Power BI (Proyecto Real)
-Sistema profesional para analizar el IVA real y montos netos de facturación semanal y mensual.  
-Incluye:
-- Dataset maestro
-- Automatización mensual
-- Dashboard semanal y mensual
-- KPIs (subtotal, IVA total, total pagado)
+Incluye KPIs, segmentadores y visualizaciones comparativas.
 
 ---
 
-## Habilidades que aplico
-- Limpieza y transformación de datos (ETL)
-- Modelado de datos
-- Medidas DAX
-- Consultas SQL
-- Visualización profesional
-- KPIs y segmentadores
+###  Proyecto 4 SQL ventas — SQL + Power BI
+Proyecto enfocado en el uso de SQL para análisis de ventas.  
+Incluye consultas, agregaciones y conexión de la base de datos con Power BI para visualización.
 
 ---
 
-## Contacto
-**facundodantemazz@gmail.com**  
+###  Proyecto 5_lechuga — Excel + SMART + SOW + Power BI
+Proyecto desarrollado como parte del Certificado de Google Data Analytics.  
+Incluye definición de objetivos SMART, análisis SOW, limpieza de datos y dashboard final.
+
+---
+
+###  Proyecto1_Videojuegos — Excel + Power BI
+Análisis de un dataset de videojuegos con métricas de ventas, plataformas y categorías.  
+Incluye limpieza de datos, KPIs y dashboard en Power BI.
+
+---
+
+###  proyecto_2_appol — Excel + Power BI
+Análisis de productos, precios y comportamiento de ventas.  
+Incluye limpieza de datos, Power Query y dashboard final.
+
+---
+
+## Skills Demonstrated
+- Data cleaning and transformation (ETL)
+- SQL querying and analysis
+- Data modeling
+- DAX measures
+- Dashboard design and storytelling
+- KPI definition and segmentation
+
+---
+
+## Contact
+ **facundodantemazz@gmail.com**  
  Córdoba, Argentina
 
 ---
 
-Cada carpeta del repositorio incluirá:
-- Dataset
-- Archivo Power BI (.pbix)
-- README del proyecto
-- Capturas del dashboard
-
-¡Más proyectos serán agregados a medida que avance mi certificación!
+This portfolio reflects my learning process and professional growth as a Data Analyst.  
+New projects will be added as I continue developing my skills.
