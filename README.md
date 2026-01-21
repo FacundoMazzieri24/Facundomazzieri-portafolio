@@ -21,59 +21,61 @@ I work with tools such as:
 ## Portfolio Structure
 Projects are organized by skill level to clearly show progression:
 
-- **entry-level/**: foundational projects documented in Spanish, focused on data cleaning, basic analysis, and visualization
-- **junior-level/**: more advanced projects documented in English, focused on SQL analysis, business questions, and complete dashboards
+- **entry-level/**: foundational projects documented in Spanish, focused on data cleaning, exploratory analysis, KPI definition, and basic dashboard development
+- **junior-level/**: more advanced projects documented in English, focused on SQL analysis, business questions, and end-to-end dashboards
 
 ---
 
 ## Junior-Level Projects
 
-###  Sales Performance Analysis — SQL + Power BI (Kaggle)
+### Sales Performance Analysis — SQL + Power BI (Kaggle)
 Business-oriented sales analysis using a Kaggle dataset.  
 Includes time-based analysis, city performance ranking, seasonality detection, and KPI visualization.
 
- Focus: business questions, insights, and data-driven recommendations  
-📎 Project documentation available in English
+**Focus:** business questions, insights, and data-driven recommendations  
+ Project documentation available in English
 
 ---
 
-###  Naruto Episodes Analysis — SQL + Power BI
+### Naruto Episodes Analysis — SQL + Power BI
 Exploratory analysis of Naruto episode ratings to compare canon and filler episodes, evaluate saga performance, and analyze rating trends over time.
 
- Focus: SQL views, analytical storytelling, and dashboard development  
-📎 Includes SQL queries, Power BI dashboard, and PDF export
+**Focus:** SQL views, analytical storytelling, and dashboard development  
+ Includes SQL queries, Power BI dashboard, and PDF export
 
 ---
 
 ## Entry-Level Projects (Spanish Documentation)
 
-###  Proyecto 3_finanzas — Excel + Power BI
-Dashboard financiero para analizar ingresos, gastos, categorías y tendencias mensuales.  
-Incluye KPIs, segmentadores y visualizaciones comparativas.
+### Proyecto 3_finanzas — Excel + Power BI
+Introductory financial analysis project focused on understanding income, expenses, categories, and monthly trends.  
+The project emphasizes KPI creation, basic financial metrics, and interactive visualizations in Power BI.
 
 ---
 
-###  Proyecto 4 SQL ventas — SQL + Power BI
-Proyecto enfocado en el uso de SQL para análisis de ventas.  
-Incluye consultas, agregaciones y conexión de la base de datos con Power BI para visualización.
+### Proyecto 4 SQL ventas — SQL + Power BI
+Foundational project designed to practice SQL-based sales analysis.  
+Includes table creation, aggregations, basic KPIs, and database connection to Power BI for visualization.
 
 ---
 
-###  Proyecto 5_lechuga — Excel + SMART + SOW + Power BI
-Proyecto desarrollado como parte del Certificado de Google Data Analytics.  
-Incluye definición de objetivos SMART, análisis SOW, limpieza de datos y dashboard final.
+### Proyecto 5_lechuga — Excel + SMART + SOW + Power BI
+Academic project developed as part of the Google Data Analytics Professional Certificate.  
+Focused on analytical methodology, including SMART objectives, SOW definition, data cleaning, and exploratory analysis.
+
+ The emphasis of this project is on process and documentation rather than advanced dashboard design.
 
 ---
 
-###  Proyecto1_Videojuegos — Excel + Power BI
-Análisis de un dataset de videojuegos con métricas de ventas, plataformas y categorías.  
-Incluye limpieza de datos, KPIs y dashboard en Power BI.
+### Proyecto1_Videojuegos — Excel + Power BI
+Exploratory analysis of a video game sales dataset, focused on platforms, genres, regions, and historical trends.  
+Includes data cleaning, descriptive KPIs, and a Power BI dashboard.
 
 ---
 
-###  proyecto_2_appol — Excel + Power BI
-Análisis de productos, precios y comportamiento de ventas.  
-Incluye limpieza de datos, Power Query y dashboard final.
+### proyecto_2_appol — Excel + Power BI
+Product and sales analysis project using a fictional company dataset.  
+Focuses on price, margin, profitability, and comparative analysis across regions using Power BI.
 
 ---
 
@@ -95,3 +97,4 @@ Incluye limpieza de datos, Power Query y dashboard final.
 
 This portfolio reflects my learning process and professional growth as a Data Analyst.  
 New projects will be added as I continue developing my skills.
+
