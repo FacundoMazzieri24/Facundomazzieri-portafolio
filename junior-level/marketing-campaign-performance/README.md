@@ -156,6 +156,15 @@ There is a clear relationship between language and geographic location, enabling
 ---
 
 ##  Project Structure
+marketing-campaign-performance/
+├── README.md
+├── sql/
+│   ├── marketing_queries.sql
+│   └── marketing_views.sql
+├── powerbi/
+│   └── marketing_dashboard.pbix
+└── images/
+    └── marketing_dashboard.pdf
 
 ---
 
