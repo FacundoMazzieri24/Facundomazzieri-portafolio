@@ -1,9 +1,9 @@
-#  Marketing Campaign Performance Analysis  
+# Marketing Campaign Performance Analysis  
 **SQL (PostgreSQL) + Power BI**
 
 ---
 
-##  Project Overview
+## Project Overview
 
 This project analyzes marketing campaign performance using a structured dataset that includes impressions, clicks, ROI, acquisition cost, customer segments, languages, and geographic locations.
 
@@ -13,13 +13,22 @@ The main goal is to evaluate campaign efficiency and support data-driven marketi
 
 ---
 
-##  Stakeholder Objective
+## Dataset
+
+- **Source:** Kaggle  
+- **Format:** CSV  
+- **Description:** Simulated marketing campaign data including performance metrics, customer segments, campaign types, channels, languages, and locations.  
+- The dataset was loaded into PostgreSQL, explored through analytical SQL queries, and visualized in Power BI.
+
+---
+
+## Stakeholder Objective
 
 To understand which campaigns, companies, and marketing channels deliver the best performance in order to optimize marketing spend and maximize return on investment (ROI).
 
 ---
 
-##  Business Questions
+## Business Questions
 
 - Which companies generate the highest and lowest volume of impressions and clicks, and how do they compare in terms of CTR and ROI?
 - Are there significant differences in ROI across campaign types?
@@ -32,9 +41,17 @@ To understand which campaigns, companies, and marketing channels deliver the bes
 
 ---
 
-##   Key Insights
+## Key Metrics Defined
 
-###  Companies with the Highest Volume of Impressions and Clicks
+- **CTR (Click-Through Rate)** = Clicks / Impressions  
+- **ROI (Return on Investment)**  
+- **CAC (Customer Acquisition Cost)** = Acquisition Cost / Customers  
+
+---
+
+## Key Insights
+
+### Companies with the Highest Volume of Impressions and Clicks
 
 **Findings**
 - Tech Corp leads in impressions and clicks and also shows the highest CTR and ROI.
@@ -46,7 +63,7 @@ Tech Corp is the most efficient and consistent company, making it the top candid
 
 ---
 
-###  Companies with the Lowest Volume of Impressions and Clicks
+### Companies with the Lowest Volume of Impressions and Clicks
 
 **Findings**
 - Innovate Industries shows the lowest volume of clicks and impressions, with low CTR and ROI.
@@ -57,7 +74,7 @@ NexGen Systems shows weak overall performance and should be considered for cost 
 
 ---
 
-###  ROI Differences Between Campaign Types
+### ROI Differences Between Campaign Types
 
 **Findings**
 - Influencer campaigns deliver the highest ROI.
@@ -70,7 +87,7 @@ Prioritize Influencer campaigns, maintain investment in Search and Display, and 
 
 ---
 
-###  Performance by Marketing Channel (CTR)
+### Performance by Marketing Channel (CTR)
 
 **Findings**
 - Website has the highest CTR.
@@ -84,7 +101,7 @@ Google Ads requires optimization or budget reduction.
 
 ---
 
-###  Performance Over Time
+### Performance Over Time
 
 **Findings**
 - Initial growth is observed in clicks, impressions, and ROI.
@@ -95,7 +112,7 @@ Campaigns reach a maturity stage, highlighting the need for optimization to sust
 
 ---
 
-###  Top 3 Campaigns by ROI
+### Top 3 Campaigns by ROI
 
 1. Influencer  
 2. Search  
@@ -106,7 +123,7 @@ Influencer campaigns should be prioritized, while Search and Display remain comp
 
 ---
 
-###  Customer Acquisition Cost (CAC)
+### Customer Acquisition Cost (CAC)
 
 **Findings**
 - Alpha Innovations has the highest CAC.
@@ -119,7 +136,7 @@ Low CAC alone is not sufficient if ROI is weak (as in NexGen Systems).
 
 ---
 
-###  Customer Segment Performance
+### Customer Segment Performance
 
 **Findings**
 - Foodies lead in clicks, impressions, and CTR.
@@ -133,7 +150,7 @@ Reduce investment in Fashionistas and Health & Wellness.
 
 ---
 
-###  Language and Geographic Location
+### Language and Geographic Location
 
 **Findings**
 - English campaigns concentrate impressions mainly in the United States.
@@ -147,7 +164,7 @@ There is a clear relationship between language and geographic location, enabling
 
 ---
 
-##  Tools & Technologies
+## Tools & Technologies
 
 - **PostgreSQL** – Data exploration, analytical queries, and views  
 - **SQL** – Aggregations, KPIs, and business logic  
@@ -174,3 +191,4 @@ marketing-campaign-performance/
  facundodantemazz@gmail.com  
  Córdoba, Argentina
 
+This project demonstrates a complete analytical workflow, from business understanding and SQL analysis to dashboard design and insight generation.
