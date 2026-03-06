@@ -12,58 +12,68 @@
 -- data normalization - star schema
 -- =====================================================
 
+--------------------------------------------------------
 -- dimension: product
+--------------------------------------------------------
+
 create table dim_product as
 select
-    row_number() over(order by "product name") as product_id,
-    "product name",
-    category,
-    sub_category
+    row_number() over(order by "Product Name") as product_id,
+    "Product Name",
+    category
 from (
     select distinct
-        "product name",
-        category,
-        sub_category
-    from sales_raw
+        "Product Name",
+        category
+    from raw_sales1
 ) t;
 
 
+--------------------------------------------------------
 -- dimension: region
+--------------------------------------------------------
+
 create table dim_region as
 select
     row_number() over(order by region) as region_id,
     region
 from (
     select distinct region
-    from sales_raw
+    from raw_sales1
 ) t;
 
 
+--------------------------------------------------------
 -- dimension: date
+--------------------------------------------------------
+
 create table dim_date as
 select distinct
-    date,
-    extract(year from date) as year,
-    extract(month from date) as month,
-    extract(day from date) as day
-from sales_raw;
+    "Order Date" as date,
+    extract(year from "Order Date") as year,
+    extract(month from "Order Date") as month,
+    extract(quarter from "Order Date") as quarter
+from raw_sales1;
 
 
+--------------------------------------------------------
 -- fact table
+--------------------------------------------------------
+
 create table fact_sales as
 select
+    row_number() over() as order_id,
+    s."Order Date" as date,
     p.product_id,
     r.region_id,
-    d.date,
+    s.quantity,
     s.sales,
     s.profit
-from sales_raw s
+from raw_sales1 s
 join dim_product p
-    on s."product name" = p."product name"
+    on s."Product Name" = p."Product Name"
 join dim_region r
-    on s.region = r.region
-join dim_date d
-    on s.date = d.date;
+    on s.region = r.region;
 
 
 
@@ -259,6 +269,7 @@ where sales_rank <= 10
 and margin_rank <= 10
 
 order by total_sales desc, profit_margin asc;
+
 
 
 
