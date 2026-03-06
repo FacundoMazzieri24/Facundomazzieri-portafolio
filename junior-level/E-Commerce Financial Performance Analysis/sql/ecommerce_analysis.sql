@@ -1,160 +1,194 @@
 /*
-project: e-commerce financial performance analysis
-author: facundo
-period: 2022 - 2024
+E-Commerce Financial Performance Analysis (2022–2024)
 
-description:
-sql analysis used to explore sales, profit, product performance,
-and regional contribution. these queries support the insights
-later visualized in the power bi dashboard.
+Business questions answered in this analysis:
 
-techniques used:
-- cte (common table expressions)
-- window functions
-- ranking
-- aggregations
+1. Which products generate the highest accumulated profit?
+2. Which categories have the highest sales volume and profit margin?
+3. How do sales and profit evolve month by month by region?
+4. Which products have high sales volume but low profit margin?
+
+Techniques used:
+- Joins
+- Aggregations
+- CTEs (Common Table Expressions)
+- Window Functions
+- Ranking
+- Profit Share Calculation
 */
 
--- top 3 products per region with profit share percentage
+----------------------------------------------------------
+-- Top 3 products per region with profit share percentage
+----------------------------------------------------------
 
-with resumen as (
+with product_profit as (
+
 	select 
 		r.region,
 		p."Product Name",
 		sum(fs.profit) as total_profit
+
 	from fact_sales fs
 	join dim_product p
 		on fs.product_id = p.product_id
 	join dim_region r
 		on fs.region_id = r.region_id
-	group by p."Product Name", r.region
+
+	group by r.region, p."Product Name"
+
 ),
 
 ranking as (
+
 	select *,
-		dense_rank() over (
+	
+		dense_rank() over(
 			partition by region
 			order by total_profit desc
-		) as ranking_productos,
+		) as product_rank,
 
-		sum(total_profit) over (
+		sum(total_profit) over(
 			partition by region
 		) as total_region_profit
-	from resumen
+
+	from product_profit
+
 )
 
 select 
 	region,
 	"Product Name",
 	total_profit,
-	round((total_profit * 100.0) / total_region_profit, 2) as share_profit_pct,
-	ranking_productos
+	round((total_profit * 100.0) / nullif(total_region_profit,0),2) as profit_share_pct,
+	product_rank
+
 from ranking
-where ranking_productos <= 3
-order by region, ranking_productos;
+
+where product_rank <= 3
+
+order by region, product_rank;
 
 
--- which category has the highest sales volume
--- and which category has the highest profit margin
+--------------------------------------------------------------------
+-- Which category has the highest sales volume and profit margin?
+--------------------------------------------------------------------
 
 with category_stats as (
+
 	select 
 		p.category,
-		sum(fs.sales) as totalventas,
-		sum(fs.profit) as totalprofit,
-		round(sum(fs.profit) / sum(fs.sales), 4) as margen
+		sum(fs.sales) as total_sales,
+		sum(fs.profit) as total_profit,
+		round(sum(fs.profit) / nullif(sum(fs.sales),0),4) as profit_margin
+
 	from fact_sales fs
 	join dim_product p
 		on fs.product_id = p.product_id
+
 	group by p.category
+
 )
 
 select 
 	category,
-	totalventas,
-	totalprofit,
-	margen,
+	total_sales,
+	total_profit,
+	profit_margin,
 
-	case 
-		when totalventas = (select max(totalventas) from category_stats)
-		then 'highest sales'
+	case
+		when total_sales = (select max(total_sales) from category_stats)
+		then 'Highest Sales'
 	end as top_sales,
 
-	case 
-		when margen = (select max(margen) from category_stats)
-		then 'highest margin'
+	case
+		when profit_margin = (select max(profit_margin) from category_stats)
+		then 'Highest Margin'
 	end as top_margin
 
 from category_stats
-order by totalventas desc;
+
+order by total_sales desc;
 
 
--- analyze monthly evolution of sales and profit by region
+-------------------------------------------------------------------
+-- How do sales and profit evolve month by month by region?
+-------------------------------------------------------------------
 
-with resumen as ( 
+with monthly_sales as (
+
 	select
 		r.region,
 		d.year,
 		d.month,
-		sum(fs.sales) as totalventas,
-		sum(fs.profit) as totalprofit
+		sum(fs.sales) as total_sales,
+		sum(fs.profit) as total_profit
+
 	from fact_sales fs
-	join dim_region r 
+
+	join dim_region r
 		on fs.region_id = r.region_id
-	join dim_date d 
+
+	join dim_date d
 		on fs.date = d.date
+
 	where d.year between 2022 and 2024
+
 	group by r.region, d.year, d.month
+
 )
 
 select 
 	region,
 	year,
 	month,
-	totalventas,
-	totalprofit
-from resumen
+	total_sales,
+	total_profit
+
+from monthly_sales
+
 order by region, year, month;
 
 
--- identify products with high sales volume but low profit margin
+-------------------------------------------------------------
+-- Which products have high sales volume but low margin?
+-------------------------------------------------------------
 
-with resumen as (
+with product_sales as (
+
 	select 
 		p."Product Name",
 		sum(fs.sales) as total_sales,
 		sum(fs.profit) as total_profit,
-		round(sum(fs.profit)/sum(fs.sales), 4) as margen,
+		round(sum(fs.profit) / nullif(sum(fs.sales),0),4) as profit_margin,
 
 		dense_rank() over(
 			order by sum(fs.sales) desc
 		) as sales_rank,
 
 		dense_rank() over(
-			order by round(sum(fs.profit)/sum(fs.sales),4) asc
-		) as margen_rank
+			order by round(sum(fs.profit) / nullif(sum(fs.sales),0),4) asc
+		) as margin_rank
 
 	from fact_sales fs
-	join dim_product p 
+
+	join dim_product p
 		on fs.product_id = p.product_id
 
 	group by p."Product Name"
+
 )
 
 select
-	"Product Name", 
+	"Product Name",
 	total_sales,
-	margen
-from resumen
+	profit_margin
+
+from product_sales
+
 where sales_rank <= 10
-and margen_rank <= 10
-order by total_sales desc, margen asc;
+and margin_rank <= 10
 
-
-
-
-
-
+order by total_sales desc, profit_margin asc;
 
 
 
