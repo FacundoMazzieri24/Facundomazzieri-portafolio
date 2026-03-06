@@ -1,5 +1,7 @@
 # E-Commerce Financial Performance Analysis (2022–2024)
 
+SQL • Power BI • Data Modeling • DAX • Business Analysis
+
 This project analyzes the financial performance of an ecommerce business between **2022 and 2024**.  
 The objective is to understand revenue growth, profitability trends, and product performance in order to support **data-driven strategic decisions**.
 
@@ -60,18 +62,78 @@ This project simulates a real **business request from a Commercial Director** wh
 
 # Data Model
 
-The dataset was transformed into a **star schema model** to improve query performance and support analytical reporting.
+The original dataset (`raw_sales1`) was normalized using SQL to create a **star schema model**, improving query performance and enabling analytical reporting.
 
-Main tables include:
+The model separates **transactional data (fact table)** from **descriptive attributes (dimension tables)**.
 
-- Fact table containing sales transactions
-- Dimension tables for:
-  - Products
-  - Categories
-  - Regions
-  - Calendar dates
+### Raw Table
 
-This structure enables efficient time analysis, product analysis, and regional comparisons.
+**raw_sales1**
+
+- Order Date
+- Product Name
+- category
+- region
+- quantity
+- sales
+- profit
+
+This table represents the **original transactional dataset before normalization**.
+
+---
+
+### Fact Table
+
+**fact_sales**
+
+- order_id
+- date
+- product_id
+- region_id
+- quantity
+- sales
+- profit
+
+This table stores the **transaction-level metrics** used for analysis.
+
+---
+
+### Dimension Tables
+
+**dim_product**
+
+- product_id
+- Product Name
+- category
+
+**dim_region**
+
+- region_id
+- region
+
+**dim_date**
+
+- date
+- year
+- month
+- quarter
+
+---
+
+### Power BI Calendar Table
+
+Inside Power BI, an additional **calendar table (TB_Calendario)** was created using DAX to support **time intelligence calculations** such as Year-over-Year growth.
+
+This table enables:
+
+- YoY calculations
+- monthly trend analysis
+- proper time filtering across visuals
+
+The final model therefore combines:
+
+- **SQL star schema (data layer)**
+- **Power BI semantic model with DAX measures (analytics layer)**
 
 ---
 
