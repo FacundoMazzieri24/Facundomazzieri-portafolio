@@ -1,7 +1,77 @@
-/*
-E-Commerce Financial Performance Analysis (2022–2024)
+-- =====================================================
+-- ecommerce financial performance analysis (2022–2024)
+-- author: facundo
+-- description:
+-- sql queries used to transform the raw ecommerce dataset,
+-- create a star schema, and perform analytical queries
+-- for the power bi dashboard.
+-- =====================================================
 
-Business questions answered in this analysis:
+
+-- =====================================================
+-- data normalization - star schema
+-- =====================================================
+
+-- dimension: product
+create table dim_product as
+select
+    row_number() over(order by "product name") as product_id,
+    "product name",
+    category,
+    sub_category
+from (
+    select distinct
+        "product name",
+        category,
+        sub_category
+    from sales_raw
+) t;
+
+
+-- dimension: region
+create table dim_region as
+select
+    row_number() over(order by region) as region_id,
+    region
+from (
+    select distinct region
+    from sales_raw
+) t;
+
+
+-- dimension: date
+create table dim_date as
+select distinct
+    date,
+    extract(year from date) as year,
+    extract(month from date) as month,
+    extract(day from date) as day
+from sales_raw;
+
+
+-- fact table
+create table fact_sales as
+select
+    p.product_id,
+    r.region_id,
+    d.date,
+    s.sales,
+    s.profit
+from sales_raw s
+join dim_product p
+    on s."product name" = p."product name"
+join dim_region r
+    on s.region = r.region
+join dim_date d
+    on s.date = d.date;
+
+
+
+-- =====================================================
+-- analytical queries
+-- =====================================================
+
+/* Business questions answered in this analysis:
 
 1. Which products generate the highest accumulated profit?
 2. Which categories have the highest sales volume and profit margin?
@@ -189,6 +259,7 @@ where sales_rank <= 10
 and margin_rank <= 10
 
 order by total_sales desc, profit_margin asc;
+
 
 
 
