@@ -106,23 +106,23 @@ The dashboard was built to provide an **executive-level overview of financial pe
 It includes **four analytical pages**:
 
 ### 1. Financial Overview
-- Total Sales
+- Total Revenue
 - Total Profit
-- Sales YoY %
-- Profit YoY %
+- Sales Growth (YoY)
+- Profit Growth (YoY)
 - Profit Margin %
-- Sales & Profit monthly evolution
+- Monthly Sales and Profit Performance
 - Profit distribution by region
 
 ### 2. Product Performance
 - Top 3 products by region based on profit
 - Profit share contribution
-- Products generating the highest cumulative profit
+- Products generate the highest cumulative profit between 2022 and 2024
 
 ### 3. Profitability Analysis
-- Correlation between Sales and Profit
+- Sales vs Profit Relationship
 - Identification of high-sales low-margin products
-- Category performance by sales and average margin
+- Sales Performance by Category
 
 ### 4. Trends Analysis
 - Year-over-year evolution of Sales and Profit
@@ -132,14 +132,23 @@ The dashboard allows filtering by **year and region** to explore performance acr
 
 ---
 
-# Key Insights
+# Key Business Insights
 
-- **Electronics** generates the highest sales volume and also maintains the strongest profit margins.
-- **Office products** show the lowest sales volume and the weakest margins.
-- **Keyboards, headphones, and tablets** generate the lowest total profit among products.
-- The business experienced **strong growth between 2022 and 2023**.
-- In **2024**, both sales and profit declined significantly compared to the previous year.
-- Despite revenue growth earlier in the period, **profitability margins slightly deteriorated over time**, suggesting increasing operational costs or pricing pressure.
+**Regional Performance**
+- The **West region generates the highest total profit**, making it the most important contributor to overall business performance.
+
+**Product Performance**
+- **Camera and Monitor generate the highest cumulative profit**, positioning them as the main drivers of profitability.
+- **Keyboards, Headphones, and Tablets generate the lowest total profit**, suggesting potential issues related to pricing, demand, or cost structure.
+
+**Category Performance**
+- The **Electronics category leads both in total sales volume and profit margin**, making it the most profitable category overall.
+- The **Office category records the lowest sales volume and the lowest profit margin**, indicating a limited contribution to overall profitability.
+
+**Business Trend (2022–2024)**
+- **Sales and profit increased in 2023 compared to 2022**, showing a period of business expansion.
+- **In 2024, both metrics decline significantly**, indicating a slowdown in overall performance.
+- **Profit margins decreased from 18.69% in 2022 to 16.49% in 2024**, suggesting increasing costs or pricing pressure over time.
 
 ---
 
