@@ -157,19 +157,22 @@ The dashboard allows filtering by **year and region** to explore performance acr
 E-Commerce-Financial-Performance Analysis/
 │
 ├── data/
-│ └── dataset.csv
+│   └── dataset.csv
 │
 ├── sql/
-│ └── ecommerce_analysis.sql
+│   └── ecommerce_analysis.sql
 │
 ├── powerbi/
-│ └── ecommerce_dashboard.pbix
+│   └── ecommerce_dashboard.pbix
+│
+├── dashboard/
+│   └── ecommerce_dashboard.pdf
 │
 ├── images/
-│ ├── overview.png
-│ ├── products.png
-│ ├── profitability.png
-│ └── trends.png
+│   ├── overview.png
+│   ├── products.png
+│   ├── profitability.png
+│   └── trends.png
 │
 └── README.md
 
