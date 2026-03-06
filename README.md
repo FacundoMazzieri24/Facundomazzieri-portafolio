@@ -42,7 +42,7 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 - Developed an executive Power BI dashboard with Sales, Profit, Margin %, and YoY KPIs
 - Identified declining profit margins and top-performing product categories
 
-📁 [View Project](./junior-level/E-Commerce Financial Performance Analysis/)
+📁 [View Project](./junior-level/E-Commerce-Financial-Performance-Analysis/)
 
 ---
 
