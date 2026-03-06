@@ -254,9 +254,10 @@ E-Commerce-Financial-Performance Analysis/
 - Data cleaning and transformation
 - SQL analytical queries
 - Window functions and ranking
+- Data modeling (Star Schema)
 - Business KPI development
-- Data modeling for BI
-- Dashboard design for executive decision-making
+- Power BI dashboard design
+- DAX measures and time intelligence
 - Business insight generation
 
 ---
