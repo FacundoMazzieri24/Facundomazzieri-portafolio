@@ -1,6 +1,6 @@
 # Data Analytics Portfolio — Facundo Mazzieri
 
-Welcome! This repository contains my data analytics portfolio, showcasing projects developed using **SQL, Power BI, Data Modeling, and Business Analysis**.
+Welcome! This repository contains my data analytics portfolio, showcasing projects developed using **SQL, Power BI, Python, Data Modeling, and Business Analysis**.
 
 The goal of this portfolio is to demonstrate my technical skills, analytical thinking, and business-oriented approach through real-world datasets and end-to-end analyses.
 
@@ -18,7 +18,7 @@ I specialize in transforming raw datasets into actionable business insights thro
 - Data Modeling — Star Schema, Fact & Dimension Tables, ETL concepts
 - Business Analytics — KPI definition (CTR, ROI, CAC), EDA, Data Storytelling
 - Excel / Google Sheets
-- Python for Data Analysis — Pandas, NumPy *(in progress)*
+- Python for Data Analysis — Pandas, NumPy, Matplotlib, Seaborn
 
 📍 Córdoba, Argentina
 📧 facundodantemazz@gmail.com
@@ -43,6 +43,20 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 - Identified declining profit margins and top-performing product categories
 
 📁 [View Project](./junior-level/E-Commerce-Financial-Performance-Analysis/)
+
+---
+
+### 💼 Data Science Salaries Analysis — Python
+**Tools:** Python · Pandas · NumPy · Matplotlib · Seaborn
+
+Analysis of salary trends in data-related careers using 9,355 records from 2020 to 2023. Focused on supporting data-driven hiring decisions by understanding salary distributions across roles, experience levels, company sizes, work settings, and geographic regions.
+
+- Analyzed salary distribution across 15+ job titles and 10+ job categories
+- Identified a 117% salary gap between Latin America and North America
+- Found that salaries grew 44.1% overall between 2020 and 2023
+- Discovered that in-person roles pay more than remote on average — contrary to common assumptions
+
+📁 [View Project](./junior-level/data-science-salaries-analysis/)
 
 ---
 
@@ -106,9 +120,13 @@ Foundational projects documented in Spanish, focused on learning core concepts: 
 - DAX measures and time intelligence (YoY, MoM)
 - Dashboard design and data storytelling
 - KPI definition, segmentation, and business insight generation
+- Python — Pandas, NumPy, Matplotlib, Seaborn
 
 ---
 
 *Portfolio actively updated. New projects added as skills develop.*
+
+
+
 
 
