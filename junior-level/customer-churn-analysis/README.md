@@ -5,7 +5,7 @@ End-to-end churn analysis for a telecommunications company, combining explorator
 
 ---
 
-## 🎯 Stakeholder Objective
+##  Stakeholder Objective
 
 **Role:** Director of Customer Retention — Telecommunications Company
 
@@ -13,7 +13,7 @@ End-to-end churn analysis for a telecommunications company, combining explorator
 
 ---
 
-## ❓ Business Questions
+##  Business Questions
 
 1. What customers have the highest probability of churning?
 2. What combination of factors maximizes churn risk?
@@ -28,7 +28,7 @@ End-to-end churn analysis for a telecommunications company, combining explorator
 
 ---
 
-## 📁 Dataset
+##  Dataset
 
 - **Source:** Kaggle — Telco Customer Churn (IBM)
 - **Records:** 7,043 customers
@@ -37,7 +37,7 @@ End-to-end churn analysis for a telecommunications company, combining explorator
 
 ---
 
-## 🛠️ Tools & Technologies
+##  Tools & Technologies
 
 | Phase | Tools |
 |---|---|
@@ -47,7 +47,7 @@ End-to-end churn analysis for a telecommunications company, combining explorator
 
 ---
 
-## 🔄 Project Pipeline
+##  Project Pipeline
 
 ```
 Raw Data (CSV)
@@ -61,7 +61,7 @@ Power BI — Executive dashboard, KPIs, interactive visuals
 
 ---
 
-## 🧹 Data Cleaning
+##  Data Cleaning
 
 - Converted `TotalCharges` from string to numeric (spaces replaced with nulls)
 - Imputed 11 null values with 0 — customers with `tenure = 0` had no accumulated charges (business logic, not deletion)
@@ -70,7 +70,7 @@ Power BI — Executive dashboard, KPIs, interactive visuals
 
 ---
 
-## 🗄️ SQL Data Model — Star Schema
+##  SQL Data Model — Star Schema
 
 ```
 fact_churn (customerid, tenure, monthlycharges, totalcharges, churn, risklevel)
@@ -91,7 +91,7 @@ fact_churn (customerid, tenure, monthlycharges, totalcharges, churn, risklevel)
 
 ---
 
-## 🤖 Machine Learning — Logistic Regression
+##  Machine Learning — Logistic Regression
 
 **Model:** Logistic Regression (Scikit-learn)
 **Train/Test split:** 80% / 20%
@@ -107,7 +107,7 @@ fact_churn (customerid, tenure, monthlycharges, totalcharges, churn, risklevel)
 
 ---
 
-## 📊 Key Business Insights
+##  Key Business Insights
 
 **1. Overall Churn Rate**
 26.54% of customers churned — 1,869 out of 7,043 customers lost.
@@ -147,7 +147,7 @@ High Risk + Month-to-month + Electronic check = **63.90% churn probability**
 
 ---
 
-## 📋 Project Structure
+##  Project Structure
 
 ```
 customer-churn-analysis/
@@ -166,6 +166,28 @@ customer-churn-analysis/
     ├── customer_analysis.png
     └── risk_segmentation.png
 ```
+
+---
+
+##  Business Recommendations
+
+**1. Focus retention on the first 12 months**
+Churn drops from 61.9% in month 1 to under 20% after month 24. Design an onboarding program with incentives, proactive support, and check-ins during the first year.
+
+**2. Incentivize long-term contracts**
+Month-to-month customers churn at 43% vs 3% for two-year contracts. Offer discounts or exclusive benefits to customers who switch to annual or two-year plans.
+
+**3. Investigate Electronic Check experience**
+Electronic check customers churn at 45% — more than double other methods. Conduct UX research to identify friction points in the payment experience before making changes.
+
+**4. Promote OnlineSecurity and TechSupport**
+Customers with these services churn at ~15% vs ~41% without them. Bundle or promote these services during onboarding to increase customer stickiness.
+
+**5. Design a Senior Citizens retention program**
+Senior customers churn at 41.68% — nearly double the average. Develop targeted plans with simplified pricing, dedicated support, or senior-specific benefits.
+
+**6. Monitor Low Risk segment**
+Despite a 13% churn rate, Low Risk customers generate $586K in annual revenue loss due to their large base. Monitor this segment to prevent silent churn.
 
 ---
 
