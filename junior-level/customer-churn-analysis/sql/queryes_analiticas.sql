@@ -1,31 +1,27 @@
-select * from dim_contract
-select * from dim_customer
-select * from dim_services
-select * from fact_churn
---queries analiticas
--- 1.tasa general de churn
+-- analytical queries
+-- 1. overall churn rate
 with resumen as (
 		select 
-   			 	count(*) as total_clientes,
-    			sum(churn) as clientes_perdidos,
-    			round(avg(churn::decimal) * 100, 2) as tasa_churn_pct
+   			 	count(*) as total_customers,
+    			sum(churn) as lost_customers,
+    			round(avg(churn::decimal) * 100, 2) as churn_rate_pct
 		from fact_churn
 )
 select 
-	 total_clientes,
-	 clientes_perdidos,
-	 tasa_churn_pct
+	 total_customers,
+	 lost_customers,
+	 churn_rate_pct
 from resumen;
 
 	 
--- 2.churn por tipo de contrato
+-- 2. churn by contract type
 
 with resumen as (
 		select 
     		dc.contract,
-    		count(*) as total_clientes,
-    		sum(ch.churn) as clientes_perdidos,
-    		round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+    		count(*) as total_customers,
+    		sum(ch.churn) as lost_customers,
+    		round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
 		from fact_churn ch
 		join dim_contract dc
 		on ch.customerid = dc.customerid
@@ -34,19 +30,19 @@ with resumen as (
 
 select 
 	contract,
-	total_clientes,
-	clientes_perdidos,
-	tasa_churn_pct
+	total_customers,
+	lost_customers,
+	churn_rate_pct
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
--- 3.churn por metodo de pago
+-- 3. churn by payment method
 with resumen as (
 		select 
     		dc.PaymentMethod ,
-    		count(*) as total_clientes,
-    		sum(ch.churn) as clientes_perdidos,
-    		round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+    		count(*) as total_customers,
+    		sum(ch.churn) as lost_customers,
+    		round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
 		from fact_churn ch
 		join dim_contract dc
 		on ch.customerid = dc.customerid
@@ -55,14 +51,14 @@ with resumen as (
 
 select 
 	PaymentMethod,
-	total_clientes,
-	clientes_perdidos,
-	tasa_churn_pct
+	total_customers,
+	lost_customers,
+	churn_rate_pct
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
 
--- 4.churn por genero y senior citizen
+-- 4. churn by gender and senior citizen
 with resumen as (
     select 
         dcu.gender,
@@ -70,9 +66,9 @@ with resumen as (
 			when dcu.seniorcitizen = 1 then 'Senior'
 			else 'No Senior' 
 		end as senior_label,
-        count(*) as total_clientes,
-        sum(ch.churn) as clientes_perdidos,
-        round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+        count(*) as total_customers,
+        sum(ch.churn) as lost_customers,
+        round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
     from fact_churn ch
 	join dim_customer dcu
 	on ch.customerid = dcu.customerid
@@ -81,43 +77,43 @@ with resumen as (
 select 
     gender,
     senior_label,
-    total_clientes,
-    clientes_perdidos,
-    tasa_churn_pct
+    total_customers,
+    lost_customers,
+    churn_rate_pct
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
 
---5.¿Los clientes que pagan más tienen mayor churn? 
+-- 5. do customers who pay more have higher churn?
 with resumen as (
 		select 
 			risklevel,
-			count(*) as total_clientes,
-			sum(churn) as clientes_perdidos,
-			round(avg(churn::decimal) * 100, 2) as tasa_churn_pct,
-			round(avg(monthlycharges),2) as avg_monthly,
-			round(sum(churn * monthlycharges),2) as ingreso_perdido_mensual
+			count(*) as total_customers,
+			sum(churn) as lost_customers,
+			round(avg(churn::decimal) * 100, 2) as churn_rate_pct,
+			round(avg(monthlycharges),2) as avg_monthly_charges,
+			round(sum(churn * monthlycharges),2) as monthly_revenue_lost
 		from fact_churn 
 		group by risklevel
 )
 select 
 	 risklevel,
-	 total_clientes,
-	 tasa_churn_pct,
-	 avg_monthly,
-	 ingreso_perdido_mensual
+	 total_customers,
+	 churn_rate_pct,
+	 avg_monthly_charges,
+	 monthly_revenue_lost
 from resumen
-order by ingreso_perdido_mensual desc;
+order by monthly_revenue_lost desc;
 
 
 
---6. Churn por facturación electrónica
+-- 6. churn by paperless billing
 with resumen as (
 		select
 			dc.paperlessbilling,
-			count(*) as total_clientes,
-			sum(ch.churn) as clientes_perdidos,
-			round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+			count(*) as total_customers,
+			sum(ch.churn) as lost_customers,
+			round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
 		from fact_churn ch
 		join dim_contract dc
 		on ch.customerid = dc.customerid
@@ -125,21 +121,20 @@ with resumen as (
 )
 select 
 	paperlessbilling,
-	total_clientes,
-	clientes_perdidos,
-	tasa_churn_pct
+	total_customers,
+	lost_customers,
+	churn_rate_pct
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
 
---7.a Churn por internet service
--- churn por internet service
+-- 7a. churn by internet service
 with resumen as (
     select 
         ds.internetservice,
-        count(*) as total_clientes,
-        sum(ch.churn) as clientes_perdidos,
-        round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+        count(*) as total_customers,
+        sum(ch.churn) as lost_customers,
+        round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
     from fact_churn ch
     join dim_services ds 
 	on ch.customerid = ds.customerid
@@ -147,14 +142,14 @@ with resumen as (
 )
 select * 
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
 
---7.b churn por servicios binarios
+-- 7b. churn by binary services (yes/no)
 select 	
 	   'PhoneService' as servicio, 
 	   ds.phoneservice as valor,
-       round(avg(ch.churn::decimal) * 100, 2) as tasa_churn_pct
+       round(avg(ch.churn::decimal) * 100, 2) as churn_rate_pct
 from fact_churn ch 
 join dim_services ds 
 on ch.customerid = ds.customerid
@@ -246,55 +241,53 @@ where ds.streamingmovies in ('Yes', 'No')
 group by ds.streamingmovies
 
 
-order by servicio,tasa_churn_pct desc;
+order by servicio,churn_rate_pct desc;
 
 
---8. churn por antiguedad
+-- 8. churn by tenure
 with resumen as (
 	 	select
 		 	  tenure,
-			  count(*) as total_clientes,
-			  sum(churn) as clientes_perdidos,
-			  round(avg(churn::decimal) * 100, 2) as tasa_churn_pct 
+			  count(*) as total_customers,
+			  sum(churn) as lost_customers,
+			  round(avg(churn::decimal) * 100, 2) as churn_rate_pct 
 		from fact_churn
 		group by tenure
 	
 )
 select 
 	   tenure,
-	   total_clientes,
-	   clientes_perdidos,
-	   tasa_churn_pct 
+	   total_customers,
+	   lost_customers,
+	   churn_rate_pct 
 from resumen
-order by tasa_churn_pct desc;
+order by churn_rate_pct desc;
 
---9. Costo del churn en ingresos perdidos
-
--- costo total del churn en ingresos perdidos
+-- 9. estimated revenue lost by churn
 with resumen as (
 		select 
-    			count(*) filter (where churn = 1) as clientes_perdidos,
-    			round(avg(monthlycharges) filter (where churn = 1), 2) as avg_monthly_perdido,
+    			count(*) filter (where churn = 1) as lost_customers,
+    			round(avg(monthlycharges) filter (where churn = 1), 2) as avg_monthly_charges_perdido,
     			round(sum(
 			   			  case 
 			   					when churn = 1 then monthlycharges 
 			        			else 0 
-			   			  end), 2) as ingreso_mensual_perdido,
+			   			  end), 2) as monthly_revenue_lost,
     			round(sum(
 			 			  case 
 				  			    when churn = 1 then monthlycharges 
 				   				else 0 
-			  			  end) * 12, 2) as ingreso_anual_perdido
+			  			  end) * 12, 2) as annual_revenue_lost
 		from fact_churn
 )
 select 
-	   clientes_perdidos,
-	   avg_monthly_perdido,
-	   ingreso_mensual_perdido,
-	   ingreso_anual_perdido
+	   lost_customers,
+	   avg_monthly_charges_perdido,
+	   monthly_revenue_lost,
+	   annual_revenue_lost
 from resumen;
 
---10. ranking de clientes perdidos por segmento de riesgo
+-- 10. top 5 lost customers ranked by monthly charges per risk segment
 with base as (
     select 
         customerid,
@@ -307,9 +300,9 @@ with base as (
 resumen as (
     select 
         risklevel,
-        count(*) as totalclientes,
-        sum(churn) as clientes_perdidos,
-        round(avg(churn::decimal) * 100, 2) as tasa_churn_pct
+        count(*) as total_customers,
+        sum(churn) as lost_customers,
+        round(avg(churn::decimal) * 100, 2) as churn_rate_pct
     from base
     group by risklevel
 ),
@@ -322,28 +315,28 @@ ranking as (
         row_number() over (
             partition by risklevel 
             order by monthlycharges desc
-        ) as rank_cliente
+        ) as customer_rank
     from base
     where churn = 1
 )
 
 select 
     r.risklevel,
-    r.totalclientes,
-    r.clientes_perdidos,
-    r.tasa_churn_pct,
+    r.total_customers,
+    r.lost_customers,
+    r.churn_rate_pct,
     rk.customerid,
     rk.monthlycharges,
-    rk.rank_cliente
+    rk.customer_rank
 from resumen r
 join ranking rk 
 on r.risklevel = rk.risklevel
-where rk.rank_cliente <= 5
+where rk.customer_rank <= 5
 order by 
     case r.risklevel
         when 'High Risk' then 1
         when 'Medium Risk' then 2
         when 'Low Risk' then 3
     end,
-    rk.rank_cliente;
+    rk.customer_rank;
 
