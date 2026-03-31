@@ -1,6 +1,6 @@
 # Data Analytics Portfolio — Facundo Mazzieri
 
-Welcome! This repository contains my data analytics portfolio, showcasing projects developed using **SQL, Power BI, Python, Data Modeling, and Business Analysis**.
+Welcome! This repository contains my data analytics portfolio, showcasing projects developed using **SQL, Power BI, Python, Machine Learning, Data Modeling, and Business Analysis**.
 
 The goal of this portfolio is to demonstrate my technical skills, analytical thinking, and business-oriented approach through real-world datasets and end-to-end analyses.
 
@@ -16,9 +16,10 @@ I specialize in transforming raw datasets into actionable business insights thro
 - SQL (PostgreSQL, MySQL, BigQuery) — CTEs, Window Functions, Star Schema
 - Power BI — DAX measures, Power Query, Time Intelligence, Dashboard Design
 - Data Modeling — Star Schema, Fact & Dimension Tables, ETL concepts
+- Python — Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+- Machine Learning — Logistic Regression, Classification, ROC-AUC
 - Business Analytics — KPI definition (CTR, ROI, CAC), EDA, Data Storytelling
 - Excel / Google Sheets
-- Python for Data Analysis — Pandas, NumPy, Matplotlib, Seaborn
 
 📍 Córdoba, Argentina
 📧 facundodantemazz@gmail.com
@@ -28,7 +29,21 @@ I specialize in transforming raw datasets into actionable business insights thro
 
 ## Junior-Level Projects
 
-Projects documented in English, focused on SQL analysis, data modeling, business questions, and end-to-end dashboards.
+Projects documented in English, focused on SQL analysis, data modeling, business questions, and end-to-end analyses.
+
+---
+
+### 📉 Customer Churn Analysis & Prediction — Python · SQL · Power BI · Machine Learning
+**Tools:** Python · SQL (PostgreSQL) · Power BI · Scikit-learn · Star Schema
+
+End-to-end churn analysis for a telecommunications company. Combines exploratory data analysis, SQL data modeling, predictive machine learning, and executive dashboard development across 7,043 customer records.
+
+- Built a star schema in PostgreSQL with fact and dimension tables from a flat CSV dataset
+- Developed a Logistic Regression model achieving 81% accuracy and 0.86 ROC-AUC score
+- Identified that High Risk + Month-to-month + Electronic check = 63.9% churn probability
+- Estimated $1.67M in annual revenue lost to churn across 1,869 customers
+
+📁 [View Project](./junior-level/customer-churn-analysis/)
 
 ---
 
@@ -40,7 +55,7 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 - Designed a star schema data model from a raw dataset using SQL normalization
 - Built analytical queries using CTEs and window functions
 - Developed an executive Power BI dashboard with Sales, Profit, Margin %, and YoY KPIs
-- Identified declining profit margins and top-performing product categories
+- Identified declining profit margins (18.69% → 16.49%) and top-performing product categories
 
 📁 [View Project](./junior-level/E-Commerce-Financial-Performance-Analysis/)
 
@@ -121,12 +136,9 @@ Foundational projects documented in Spanish, focused on learning core concepts: 
 - Dashboard design and data storytelling
 - KPI definition, segmentation, and business insight generation
 - Python — Pandas, NumPy, Matplotlib, Seaborn
+- Machine Learning — Logistic Regression, classification metrics, ROC-AUC
 
 ---
 
 *Portfolio actively updated. New projects added as skills develop.*
-
-
-
-
 
