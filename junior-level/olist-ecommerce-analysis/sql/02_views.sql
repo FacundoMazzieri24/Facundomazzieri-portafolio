@@ -51,12 +51,15 @@ with resumen as (
 	 	date_trunc('month',o.order_purchase_timestamp) as month,
 	 	count(distinct o.order_id) as total_orders,
 	 	count(distinct c.customer_unique_id) as unique_customers,
-	 	round(sum(p.payment_value)::numeric,2) as total_revenue
+	 	round(sum(p.payment_value)::numeric,2) as total_revenue,
+		round(avg(r.review_score)::numeric, 4) as avg_review_score
 	from orders o
 	join customers c
 	on o.customer_id = c.customer_id
 	join payments p
 	on o.order_id = p.order_id
+	left join reviews r 
+	on o.order_id = r.order_id
 	group by month
 )	   
 
@@ -64,7 +67,8 @@ select
 	  month,
 	  total_orders,
 	  unique_customers,
-	  total_revenue
+	  total_revenue,
+	  avg_review_score
 from resumen
 order by month;
 
