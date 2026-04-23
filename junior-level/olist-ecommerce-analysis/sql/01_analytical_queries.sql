@@ -182,27 +182,24 @@ order by late_delivery_rate desc, avg_review_score asc;
 -- Q4 — High-Price Products vs Revenue and Units Sold
 -- ============================================================
 with resumen as (
-		select 
-	  		c.product_category_name_english,
-	  		round(avg(i.price)::numeric,2) as avg_price,
-	  		round(sum(py.payment_value)::numeric,2) as total_revenue,
-	  		count(i.order_id) as unidades_vendidas
-		from items i
-		join products p
-		on i.product_id = p.product_id
-		join category_translation c
-		on p.product_category_name = c.product_category_name
-		join payments py
-		on i.order_id = py.order_id
-		group by c.product_category_name_english
+	select
+		ct.product_category_name_english,
+		round(avg(i.price)::numeric, 2) as avg_price,
+		round(sum(i.price)::numeric, 2) as total_revenue,
+		count(i.order_id) as units_sold
+	from items i
+	join products p  
+	on i.product_id = p.product_id
+	join category_translation ct 
+	on p.product_category_name = ct.product_category_name
+	group by ct.product_category_name_english
 )
-
-select 
-	 product_category_name_english,
-	 dense_rank() over(order by avg_price desc) as ranking,
-	 avg_price,
-	 total_revenue,
-	 unidades_vendidas
+select
+	product_category_name_english,
+	dense_rank() over (order by avg_price desc) as ranking,
+	avg_price,
+	total_revenue,
+	units_sold
 from resumen
 order by avg_price desc;
 
