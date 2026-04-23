@@ -178,29 +178,27 @@ order by late_delivery_rate desc, avg_review_score asc;
 -- ============================================================
 create view vw_product_performance as
 with resumen as (
-		select 
-	  		c.product_category_name_english,
-	  		round(avg(i.price)::numeric,2) as avg_price,
-	  		round(sum(py.payment_value)::numeric,2) as total_revenue,
-	  		count(i.order_id) as unidades_vendidas
-		from items i
-		join products p
-		on i.product_id = p.product_id
-		join category_translation c
-		on p.product_category_name = c.product_category_name
-		join payments py
-		on i.order_id = py.order_id
-		group by c.product_category_name_english
+	select
+		ct.product_category_name_english,
+		round(avg(i.price)::numeric, 2) as avg_price,
+		round(sum(i.price)::numeric, 2) as total_revenue,
+		count(i.order_id) as units_sold
+	from items i
+	join products p  
+	on i.product_id = p.product_id
+	join category_translation ct 
+	on p.product_category_name = ct.product_category_name
+	group by ct.product_category_name_english
 )
-
-select 
-	 product_category_name_english,
-	 dense_rank() over(order by avg_price desc) as ranking,
-	 avg_price,
-	 total_revenue,
-	 unidades_vendidas
+select
+	product_category_name_english,
+	dense_rank() over (order by avg_price desc) as ranking,
+	avg_price,
+	total_revenue,
+	units_sold
 from resumen
 order by avg_price desc;
+
 
 
 -- ============================================================
@@ -234,29 +232,26 @@ order by avg_review_score desc;
 -- ============================================================
 -- Q6 — Categories with Lowest Revenue and Worst Reviews
 -- ============================================================
-create view vw_category_performance as 
-with payments_per_order as (
-    select order_id, sum(payment_value) as total_payment
-    from payments
-    group by order_id
-),
-resumen as (
-    select 
-        c.product_category_name_english,
-        round(sum(p.total_payment)::numeric,2) as total_revenue,
-        round(avg(r.review_score)::numeric, 4) as avg_review_score,
-        count(i.order_id) as total_units
-    from items i
-    join payments_per_order p on i.order_id = p.order_id
-    left join reviews r on i.order_id = r.order_id
-    join products pr on i.product_id = pr.product_id
-    join category_translation c on pr.product_category_name = c.product_category_name
-    group by c.product_category_name_english
-    having count(i.order_id) >= 50
+create view vw_category_performance as
+with resumen as (
+	select
+		ct.product_category_name_english,
+		round(sum(i.price)::numeric, 2) as total_revenue,
+		round(avg(r.review_score)::numeric, 4) as avg_review_score,
+		count(i.order_id) as total_units
+	from items i
+	left join reviews r  
+	on i.order_id = r.order_id
+	join products pr 
+	on i.product_id = pr.product_id
+	join category_translation ct 
+	on pr.product_category_name = ct.product_category_name
+	group by ct.product_category_name_english
+	having count(i.order_id) >= 50
 )
-select 
-    dense_rank() over(order by avg_review_score asc, total_revenue asc) as ranking,
-    *
+select
+	dense_rank() over (order by avg_review_score asc, total_revenue asc) as ranking,
+	*
 from resumen;
 
 
