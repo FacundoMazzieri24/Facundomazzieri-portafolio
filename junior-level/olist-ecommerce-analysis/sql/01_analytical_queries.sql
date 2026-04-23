@@ -239,28 +239,25 @@ order by avg_review_score desc;
 -- ============================================================
 -- Q6 — Categories with Lowest Revenue and Worst Reviews
 -- ============================================================
-with payments_per_order as (
-    select order_id, sum(payment_value) as total_payment
-    from payments
-    group by order_id
-),
-resumen as (
-    select 
-        c.product_category_name_english,
-        round(sum(p.total_payment)::numeric,2) as total_revenue,
-        round(avg(r.review_score)::numeric, 4) as avg_review_score,
-        count(i.order_id) as total_units
-    from items i
-    join payments_per_order p on i.order_id = p.order_id
-    left join reviews r on i.order_id = r.order_id
-    join products pr on i.product_id = pr.product_id
-    join category_translation c on pr.product_category_name = c.product_category_name
-    group by c.product_category_name_english
-    having count(i.order_id) >= 50
+with resumen as (
+	select
+		ct.product_category_name_english,
+		round(sum(i.price)::numeric, 2) as total_revenue,
+		round(avg(r.review_score)::numeric, 4) as avg_review_score,
+		count(i.order_id) as total_units
+	from items i
+	left join reviews r  
+	on i.order_id = r.order_id
+	join products pr 
+	on i.product_id = pr.product_id
+	join category_translation ct 
+	on pr.product_category_name = ct.product_category_name
+	group by ct.product_category_name_english
+	having count(i.order_id) >= 50
 )
-select 
-    dense_rank() over(order by avg_review_score asc, total_revenue asc) as ranking,
-    *
+select
+	dense_rank() over (order by avg_review_score asc, total_revenue asc) as ranking,
+	*
 from resumen;
 
 
