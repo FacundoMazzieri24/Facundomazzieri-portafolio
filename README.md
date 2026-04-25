@@ -1,35 +1,44 @@
 # Data Analytics Portfolio — Facundo Mazzieri
-
-Welcome! This repository contains my data analytics portfolio, showcasing projects developed using **SQL, Power BI, Python, Machine Learning, Data Modeling, and Business Analysis**.
+Welcome! This repository contains my data analytics portfolio, showcasing projects developed using SQL, Power BI, Python, Machine Learning, Data Modeling, and Business Analysis.
 
 The goal of this portfolio is to demonstrate my technical skills, analytical thinking, and business-oriented approach through real-world datasets and end-to-end analyses.
 
----
-
 ## About Me
-
-I'm **Facundo Mazzieri**, a Marketing student with a strong focus on Data Analytics and Business Intelligence.
+I'm Facundo Mazzieri, a Marketing student with a strong focus on Data Analytics and Business Intelligence.
 
 I specialize in transforming raw datasets into actionable business insights through structured analysis, data modeling, and interactive dashboards.
 
 **Technical skills:**
+
 - SQL (PostgreSQL, MySQL, BigQuery) — CTEs, Window Functions, Star Schema
 - Power BI — DAX measures, Power Query, Time Intelligence, Dashboard Design
 - Data Modeling — Star Schema, Fact & Dimension Tables, ETL concepts
 - Python — Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-- Machine Learning — Logistic Regression, Classification, ROC-AUC
+- Machine Learning — Logistic Regression, Random Forest, Classification, ROC-AUC
 - Business Analytics — KPI definition (CTR, ROI, CAC), EDA, Data Storytelling
 - Excel / Google Sheets
 
-📍 Córdoba, Argentina
-📧 facundodantemazz@gmail.com
-🔗 [LinkedIn](https://www.linkedin.com/in/facundo-mazzieri-achaval/)
+📍 Córdoba, Argentina &nbsp; 📧 facundodantemazz@gmail.com &nbsp; 🔗 [LinkedIn](https://linkedin.com/in/facundo-mazzieri-achaval)
 
 ---
 
 ## Junior-Level Projects
-
 Projects documented in English, focused on SQL analysis, data modeling, business questions, and end-to-end analyses.
+
+---
+
+### 🛒 Olist Brazilian E-Commerce Analysis — Python · SQL · Power BI · Machine Learning
+**Tools:** Python · SQL (PostgreSQL) · Power BI · Scikit-learn · 9 tables · 99,441 orders
+
+End-to-end analysis of real Brazilian e-commerce orders for a CRO stakeholder. Combines exploratory data analysis, 8 PostgreSQL analytical views, predictive machine learning, and a 5-page executive dashboard.
+
+- Built an end-to-end analytical pipeline across 9 business questions using Python, PostgreSQL, and Power BI
+- Designed 8 PostgreSQL analytical views using CTEs and window functions, integrated directly into Power BI
+- Developed a Random Forest multiclass model achieving **89% accuracy** to predict customer review scores (Positive / Regular / Negative), deployed as a Python visual inside Power BI
+- Identified that **97% of customers buy only once**, while repeat buyers generate **2x more revenue per customer** ($314 vs $161)
+- Discovered revenue grew **146x between 2016 and 2018**, from $60K to $8.8M
+
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/olist-ecommerce-analysis)
 
 ---
 
@@ -39,11 +48,11 @@ Projects documented in English, focused on SQL analysis, data modeling, business
 End-to-end churn analysis for a telecommunications company. Combines exploratory data analysis, SQL data modeling, predictive machine learning, and executive dashboard development across 7,043 customer records.
 
 - Built a star schema in PostgreSQL with fact and dimension tables from a flat CSV dataset
-- Developed a Logistic Regression model achieving 81% accuracy and 0.86 ROC-AUC score
-- Identified that High Risk + Month-to-month + Electronic check = 63.9% churn probability
-- Estimated $1.67M in annual revenue lost to churn across 1,869 customers
+- Developed a Logistic Regression model achieving **81% accuracy** and **0.86 ROC-AUC** score
+- Identified that High Risk + Month-to-month + Electronic check = **63.9% churn probability**
+- Estimated **$1.67M in annual revenue lost** to churn across 1,869 customers
 
-📁 [View Project](./junior-level/customer-churn-analysis/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/customer-churn-analysis)
 
 ---
 
@@ -57,7 +66,7 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 - Developed an executive Power BI dashboard with Sales, Profit, Margin %, and YoY KPIs
 - Identified declining profit margins (18.69% → 16.49%) and top-performing product categories
 
-📁 [View Project](./junior-level/E-Commerce-Financial-Performance-Analysis/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/ecommerce-financial-analysis)
 
 ---
 
@@ -67,11 +76,11 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 Analysis of salary trends in data-related careers using 9,355 records from 2020 to 2023. Focused on supporting data-driven hiring decisions by understanding salary distributions across roles, experience levels, company sizes, work settings, and geographic regions.
 
 - Analyzed salary distribution across 15+ job titles and 10+ job categories
-- Identified a 117% salary gap between Latin America and North America
-- Found that salaries grew 44.1% overall between 2020 and 2023
+- Identified a **117% salary gap** between Latin America and North America
+- Found that salaries grew **44.1%** overall between 2020 and 2023
 - Discovered that in-person roles pay more than remote on average — contrary to common assumptions
 
-📁 [View Project](./junior-level/data-science-salaries-analysis/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/data-science-salaries)
 
 ---
 
@@ -85,7 +94,7 @@ Analysis of marketing campaign performance across companies, channels, and custo
 - Analyzed performance by channel, customer segment, language, and geography
 - Built an interactive Power BI dashboard to support data-driven marketing decisions
 
-📁 [View Project](./junior-level/marketing-campaign-performance/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/marketing-campaign-analysis)
 
 ---
 
@@ -99,22 +108,20 @@ Business-oriented sales analysis focused on time-based trends, city performance 
 - Developed data-driven recommendations for marketing and inventory planning
 - Built an interactive Power BI dashboard with KPIs and trend visualizations
 
-📁 [View Project](./junior-level/sales-performance-analysis/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/sales-performance-analysis)
 
 ---
 
 ### 🍜 Naruto Episodes Analysis — SQL + Power BI
-**Tools:** SQL · Power BI
-*Personal interest project*
+**Tools:** SQL · Power BI · Personal interest project
 
 Exploratory analysis of Naruto episode ratings to compare canon vs filler episodes, evaluate saga performance, and analyze rating trends over time. Built to practice SQL views, analytical storytelling, and dashboard development.
 
-📁 [View Project](./junior-level/naruto-episodes-analysis/)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/naruto-episodes-analysis)
 
 ---
 
 ## Entry-Level Projects
-
 Foundational projects documented in Spanish, focused on learning core concepts: data cleaning, KPI definition, exploratory analysis, and basic dashboard development. Included to show learning progression.
 
 | Project | Tools | Focus |
@@ -136,9 +143,8 @@ Foundational projects documented in Spanish, focused on learning core concepts: 
 - Dashboard design and data storytelling
 - KPI definition, segmentation, and business insight generation
 - Python — Pandas, NumPy, Matplotlib, Seaborn
-- Machine Learning — Logistic Regression, classification metrics, ROC-AUC
+- Machine Learning — Logistic Regression, Random Forest, classification metrics, ROC-AUC
 
 ---
 
 *Portfolio actively updated. New projects added as skills develop.*
-
