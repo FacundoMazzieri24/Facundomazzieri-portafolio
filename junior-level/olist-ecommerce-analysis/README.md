@@ -8,7 +8,7 @@ End-to-end analysis of 100,000 real Brazilian e-commerce orders, combining explo
 
 ## Dashboard Overview
 
-![Dashboard Overview](images/overview.png)
+![Dashboard Overview](images/overview.jpg)
 
 ---
 
