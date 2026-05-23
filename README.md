@@ -14,7 +14,7 @@ I specialize in transforming raw datasets into actionable business insights thro
 - Power BI — DAX measures, Power Query, Time Intelligence, Dashboard Design
 - Data Modeling — Star Schema, Fact & Dimension Tables, ETL concepts
 - Python — Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-- Machine Learning — Logistic Regression, Random Forest, Classification, ROC-AUC
+- Machine Learning — Logistic Regression, Random Forest, XGBoost, SVM, SMOTE, Classification, ROC-AUC
 - Business Analytics — KPI definition (CTR, ROI, CAC), EDA, Data Storytelling
 - Excel / Google Sheets
 
@@ -24,6 +24,21 @@ I specialize in transforming raw datasets into actionable business insights thro
 
 ## Junior-Level Projects
 Projects documented in English, focused on SQL analysis, data modeling, business questions, and end-to-end analyses.
+
+---
+
+### 📊 Data Jobs Market Analysis 2024 — Python · SQL · Power BI · Machine Learning
+**Tools:** Python · SQL (PostgreSQL) · Power BI · Scikit-learn · XGBoost · SMOTE · 3 tables · 12,211 job postings
+
+End-to-end analysis of real LinkedIn job postings from January 2024. Combines SQL executed from Python via SQLAlchemy, skills co-occurrence mining, seniority classification with 4 ML models, and a 5-page executive Power BI dashboard.
+
+- Analyzed 314,927 skill mentions across 12,211 job postings to identify the most in-demand tools globally
+- Built a self-join SQL query to mine skill co-occurrence pairs — Python + SQL leads with **3,792 co-occurrences**
+- Compared **4 ML models** (Logistic Regression, Random Forest, XGBoost, SVM) with and without SMOTE to predict job seniority
+- Applied SMOTE to address extreme class imbalance (89% Senior / 11% Junior), improving Junior recall from **0.21 to 0.34**
+- Discovered that **99.8% of data job postings are Onsite** — contradicting the narrative of remote-first data roles
+
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/data-jobs-market-analysis)
 
 ---
 
@@ -137,13 +152,13 @@ Foundational projects documented in Spanish, focused on learning core concepts: 
 ## Skills Demonstrated
 
 - Data cleaning and transformation (ETL)
-- SQL querying — aggregations, CTEs, window functions, views
+- SQL querying — aggregations, CTEs, window functions, views, self joins
 - Data modeling — Star Schema, fact & dimension tables
 - DAX measures and time intelligence (YoY, MoM)
 - Dashboard design and data storytelling
 - KPI definition, segmentation, and business insight generation
 - Python — Pandas, NumPy, Matplotlib, Seaborn
-- Machine Learning — Logistic Regression, Random Forest, classification metrics, ROC-AUC
+- Machine Learning — Logistic Regression, Random Forest, XGBoost, SVM, SMOTE, classification metrics, ROC-AUC
 
 ---
 
