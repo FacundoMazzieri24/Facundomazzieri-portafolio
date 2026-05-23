@@ -8,7 +8,7 @@ End-to-end analysis of 12,211 real LinkedIn job postings from January 2024, comb
 
 ## Dashboard Overview
 
-![Dashboard Overview](images/overview.png)
+![Dashboard Overview](images/overview.jpg)
 
 ---
 
@@ -191,11 +191,11 @@ data-jobs-market-analysis/
 ├── powerbi/
 │   └── data_jobs_dashboard.pbix
 └── images/
-    ├── overview.png                 ← Page 1: Global Overview
-    ├── skills_analysis.png          ← Page 2: Skills Analysis & Co-occurrence
-    ├── seniority.png                ← Page 3: Seniority Breakdown
-    ├── market.png                   ← Page 4: Market Landscape
-    └── ml_model.png                 ← Page 5: ML Model
+    ├── overview.jpg                 ← Page 1: Global Overview
+    ├── skills_analysis.jpg          ← Page 2: Skills Analysis & Co-occurrence
+    ├── seniority.jpg                ← Page 3: Seniority Breakdown
+    ├── market.jpg                  ← Page 4: Market Landscape
+    └── ml_model.jpg                 ← Page 5: ML Model
 ```
 
 ---
