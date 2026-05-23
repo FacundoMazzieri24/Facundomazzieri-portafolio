@@ -22,8 +22,8 @@ I specialize in transforming raw datasets into actionable business insights thro
 
 ---
 
-## Junior-Level Projects
-Projects documented in English, focused on SQL analysis, data modeling, business questions, and end-to-end analyses.
+## 🚀 Advanced Projects
+*High-complexity projects integrating multiple technologies, advanced data modeling, and predictive insights.*
 
 ---
 
@@ -38,7 +38,7 @@ End-to-end analysis of real LinkedIn job postings from January 2024. Combines SQ
 - Applied SMOTE to address extreme class imbalance (89% Senior / 11% Junior), improving Junior recall from **0.21 to 0.34**
 - Discovered that **99.8% of data job postings are Onsite** — contradicting the narrative of remote-first data roles
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/data-jobs-market-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/advanced-projects/data-jobs-market-analysis)
 
 ---
 
@@ -49,11 +49,16 @@ End-to-end analysis of real Brazilian e-commerce orders for a CRO stakeholder. C
 
 - Built an end-to-end analytical pipeline across 9 business questions using Python, PostgreSQL, and Power BI
 - Designed 8 PostgreSQL analytical views using CTEs and window functions, integrated directly into Power BI
-- Developed a Random Forest multiclass model achieving **89% accuracy** to predict customer review scores (Positive / Regular / Negative), deployed as a Python visual inside Power BI
-- Identified that **97% of customers buy only once**, while repeat buyers generate **2x more revenue per customer** ($314 vs $161)
+- Developed a Random Forest multiclass model achieving **89% accuracy** to predict customer review scores
+- Identified that **97% of customers buy only once**, while repeat buyers generate **2x more revenue per customer**
 - Discovered revenue grew **146x between 2016 and 2018**, from $60K to $8.8M
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/olist-ecommerce-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/advanced-projects/olist-ecommerce-analysis)
+
+---
+
+## 💡 Core Projects
+*Projects focused on deep relational database queries, business metrics (KPIs), and customer behavior analysis.*
 
 ---
 
@@ -67,7 +72,7 @@ End-to-end churn analysis for a telecommunications company. Combines exploratory
 - Identified that High Risk + Month-to-month + Electronic check = **63.9% churn probability**
 - Estimated **$1.67M in annual revenue lost** to churn across 1,869 customers
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/customer-churn-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/core-projects/customer-churn-analysis)
 
 ---
 
@@ -81,35 +86,39 @@ Analysis of ecommerce financial performance between 2022 and 2024. Includes reve
 - Developed an executive Power BI dashboard with Sales, Profit, Margin %, and YoY KPIs
 - Identified declining profit margins (18.69% → 16.49%) and top-performing product categories
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/ecommerce-financial-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/core-projects/E-Commerce%20Financial%20Performance%20Analysis)
+
+---
+
+## 📈 Business Intelligence & Applied Analytics
+*Interactive dashboards and targeted queries designed for fast-paced corporate decision making and department-specific KPIs.*
 
 ---
 
 ### 💼 Data Science Salaries Analysis — Python
 **Tools:** Python · Pandas · NumPy · Matplotlib · Seaborn
 
-Analysis of salary trends in data-related careers using 9,355 records from 2020 to 2023. Focused on supporting data-driven hiring decisions by understanding salary distributions across roles, experience levels, company sizes, work settings, and geographic regions.
+Analysis of salary trends in data-related careers using 9,355 records from 2020 to 2023.
 
 - Analyzed salary distribution across 15+ job titles and 10+ job categories
 - Identified a **117% salary gap** between Latin America and North America
 - Found that salaries grew **44.1%** overall between 2020 and 2023
 - Discovered that in-person roles pay more than remote on average — contrary to common assumptions
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/data-science-salaries)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/business-intelligence-projects/data-science-salaries-analysis)
 
 ---
 
 ### 📣 Marketing Campaign Performance Analysis — SQL + Power BI
 **Tools:** SQL (PostgreSQL) · Power BI · DAX
 
-Analysis of marketing campaign performance across companies, channels, and customer segments. Focused on evaluating campaign efficiency and optimizing marketing investment decisions.
+Analysis of marketing campaign performance across companies, channels, and customer segments.
 
 - Calculated key KPIs: CTR, ROI, and Customer Acquisition Cost (CAC)
 - Identified high-performing campaigns and inefficient marketing spend
 - Analyzed performance by channel, customer segment, language, and geography
-- Built an interactive Power BI dashboard to support data-driven marketing decisions
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/marketing-campaign-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/business-intelligence-projects/marketing-campaign-performance)
 
 ---
 
@@ -121,23 +130,22 @@ Business-oriented sales analysis focused on time-based trends, city performance 
 - Analyzed sales evolution over time and identified seasonal patterns
 - Ranked cities by sales volume and detected regional performance gaps
 - Developed data-driven recommendations for marketing and inventory planning
-- Built an interactive Power BI dashboard with KPIs and trend visualizations
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/sales-performance-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/business-intelligence-projects/sales-performance-analysis)
 
 ---
 
 ### 🍜 Naruto Episodes Analysis — SQL + Power BI
 **Tools:** SQL · Power BI · Personal interest project
 
-Exploratory analysis of Naruto episode ratings to compare canon vs filler episodes, evaluate saga performance, and analyze rating trends over time. Built to practice SQL views, analytical storytelling, and dashboard development.
+Exploratory analysis of Naruto episode ratings to compare canon vs filler episodes, evaluate saga performance, and analyze rating trends over time.
 
-📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/junior-level/naruto-episodes-analysis)
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/business-intelligence-projects/naruto-episodes-analysis)
 
 ---
 
-## Entry-Level Projects
-Foundational projects documented in Spanish, focused on learning core concepts: data cleaning, KPI definition, exploratory analysis, and basic dashboard development. Included to show learning progression.
+## 🛠️ Foundations Projects
+*Foundational projects documented in Spanish, focused on learning core concepts: data cleaning, KPI definition, exploratory analysis, and basic dashboard development. Included to show learning progression.*
 
 | Project | Tools | Focus |
 |---|---|---|
@@ -160,6 +168,9 @@ Foundational projects documented in Spanish, focused on learning core concepts: 
 - Python — Pandas, NumPy, Matplotlib, Seaborn
 - Machine Learning — Logistic Regression, Random Forest, XGBoost, SVM, SMOTE, classification metrics, ROC-AUC
 
+---
+
+*Portfolio actively updated. New projects added as skills develop.*
 ---
 
 *Portfolio actively updated. New projects added as skills develop.*
