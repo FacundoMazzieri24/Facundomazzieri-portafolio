@@ -17,6 +17,7 @@ I specialize in transforming raw datasets into actionable business insights thro
 - Machine Learning — Logistic Regression, Random Forest, XGBoost, SVM, SMOTE, Classification, ROC-AUC
 - Business Analytics — KPI definition (CTR, ROI, CAC), EDA, Data Storytelling
 - Excel / Google Sheets
+- Automation & AI Agents — n8n, LLM APIs (Google Gemini), Prompt Engineering, Web Scraping, API Integrations (Gmail, Google Sheets)
 
 📍 Córdoba, Argentina &nbsp; 📧 facundodantemazz@gmail.com &nbsp; 🔗 [LinkedIn](https://linkedin.com/in/facundo-mazzieri-achaval)
 
@@ -26,6 +27,19 @@ I specialize in transforming raw datasets into actionable business insights thro
 *High-complexity projects integrating multiple technologies, advanced data modeling, and predictive insights.*
 
 ---
+### 🤖 AI Sales Prospecting Automation — n8n · Python · LLM (Gemini) · Web Scraping · Gmail API
+Tools: n8n · Python · Google Sheets API · Google Gemini (LLM) · Gmail API · Web Scraping
+
+End-to-end automation agent that identifies target companies, scrapes and analyzes their websites, and generates personalized B2B sales emails using generative AI — dynamically adapting language based on the target market.
+
+- Built a full pipeline: data validation → web scraping → text extraction → AI copywriting → automated email delivery → logging
+- Designed a single LLM prompt that autonomously decides output language (Spanish/English) based on company location, with no additional branching logic
+- Implemented idempotency control to prevent duplicate outreach, tracking sent status directly in the source spreadsheet
+- Solved real-world scraping challenges: anti-bot protection, oversized HTML causing memory failures, and JavaScript-rendered pages returning empty content
+- Tested against real companies across 3 countries (Argentina, Spain, United States) and multiple industries (retail, industrial engineering, technology)
+
+📁 [View Project](https://github.com/FacundoMazzieri24/Facundomazzieri-portafolio/tree/main/advanced-projects/ai-sales-prospecting-automation)
+
 
 ### 📊 Data Jobs Market Analysis 2024 — Python · SQL · Power BI · Machine Learning
 **Tools:** Python · SQL (PostgreSQL) · Power BI · Scikit-learn · XGBoost · SMOTE · 3 tables · 12,211 job postings
@@ -167,7 +181,11 @@ Exploratory analysis of Naruto episode ratings to compare canon vs filler episod
 - KPI definition, segmentation, and business insight generation
 - Python — Pandas, NumPy, Matplotlib, Seaborn
 - Machine Learning — Logistic Regression, Random Forest, XGBoost, SVM, SMOTE, classification metrics, ROC-AUC
-
+- Workflow automation & AI agent orchestration (n8n)
+- LLM prompt engineering for automated content generation and dynamic language localization
+- Web scraping and HTML/text extraction from real-world, unstructured sources
+- API integrations (Google Sheets, Gmail, Google Gemini)
+- Idempotent pipeline design and production-style error handling (rate limits, memory constraints, anti-bot protections)
 ---
 
 *Portfolio actively updated. New projects added as skills develop.*
