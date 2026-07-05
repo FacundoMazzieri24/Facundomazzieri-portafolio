@@ -3,6 +3,10 @@
 
 End-to-end automation system that identifies target companies, automatically researches their business, and drafts personalized sales emails using generative AI — dynamically adapting the output language based on the target market.
 
+## Workflow Overview
+
+![Workflow Overview](./assets/workflow_overview.png)
+
 ## The Problem
 
 Sales teams looking to open international markets face a classic bottleneck: manual prospecting (researching each company, writing a personalized message, sending it, following up) doesn't scale. The more companies you want to reach, the more human time you need — time that isn't spent on the conversations that actually generate value: closing meetings.
