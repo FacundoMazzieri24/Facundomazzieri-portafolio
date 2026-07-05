@@ -1,5 +1,6 @@
 # AI-Powered Sales Prospecting Automation Agent
 ![n8n](https://img.shields.io/badge/n8n-Workflow-EA4B71)![Python](https://img.shields.io/badge/Python-3.x-blue)![Gemini](https://img.shields.io/badge/LLM-Gemini-4285F4)![Scraping](https://img.shields.io/badge/Web-Scraping-orange)![Gmail](https://img.shields.io/badge/Gmail-API-red)![Sheets](https://img.shields.io/badge/Google%20Sheets-API-34A853)
+
 End-to-end automation system that identifies target companies, automatically researches their business, and drafts personalized sales emails using generative AI — dynamically adapting the output language based on the target market.
 
 ## The Problem
