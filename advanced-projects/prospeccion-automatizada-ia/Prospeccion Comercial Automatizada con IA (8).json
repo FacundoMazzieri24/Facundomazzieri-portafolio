@@ -1,0 +1,583 @@
+{
+  "name": "Prospeccion Comercial Automatizada con IA",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "1vXC3mufIUrxM7a6HVbdgvufEuUmonUEpN--tt0PZSk8",
+          "cachedResultName": "Prospeccion"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1",
+          "cachedResultName": "Hoja 1"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "id": "168719d3-745e-403e-a107-bc4617d9acf6",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -64,
+        112
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4FM8itw5Hq3Bwey6",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "pythonNative",
+        "pythonCode": "output = []\n\ndef get_case_insensitive(data, key):\n    for k, v in data.items():\n        if k.lower() == key.lower():\n            return v\n    return None\n\ndef extraer_url(web):\n    web = web.strip()\n    idx = web.find(\"https://\")\n    if idx == -1:\n        idx = web.find(\"http://\")\n    if idx == -1:\n        return \"https://\" + web\n    resto = web[idx:]\n    corte = len(resto)\n    for simbolo in [\")\", \"）\", \"]\", \" \", \"\\n\"]:\n        pos = resto.find(simbolo)\n        if pos != -1 and pos < corte:\n            corte = pos\n    return resto[:corte]\n\nfor item in _items:\n    json_data = item[\"json\"]\n\n    email_contacto = get_case_insensitive(json_data, \"Email_Contacto\")\n    nombre_empresa = get_case_insensitive(json_data, \"Nombre_Empresa\")\n    web = get_case_insensitive(json_data, \"Web\")\n    pais = get_case_insensitive(json_data, \"País\")  # NUEVO: leer el campo País\n\n    if not isinstance(email_contacto, str) or not isinstance(nombre_empresa, str) or not isinstance(web, str):\n        continue\n    if \"@\" not in email_contacto or \".\" not in email_contacto.split(\"@\")[1]:\n        continue\n\n    enviado = get_case_insensitive(json_data, \"Enviado\")\n    if enviado is not None and str(enviado).strip().lower() in [\"sí\", \"si\", \"true\", \"yes\"]:\n        continue\n\n    web_limpia = extraer_url(web)\n\n    nuevo_json = dict(json_data)\n    nuevo_json[\"Email_Contacto_Cleaned\"] = email_contacto\n    nuevo_json[\"Nombre_Empresa_Cleaned\"] = nombre_empresa.strip().title()\n    nuevo_json[\"Web_Cleaned\"] = web_limpia\n    nuevo_json[\"Pais_Cleaned\"] = pais.strip().title() if isinstance(pais, str) else \"Argentina\"  # NUEVO\n\n    output.append({\"json\": nuevo_json})\n\nreturn output"
+      },
+      "id": "0c55db28-5416-4b84-a11d-5b63eb3155cc",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.Web_Cleaned }}",
+        "options": {}
+      },
+      "id": "560936e8-3bac-49a0-af42-bb9d430a09b0",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        288,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "dataPropertyName": "=data",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "texto_limpio",
+              "cssSelector": "body"
+            },
+            {
+              "key": "descripcion_meta",
+              "cssSelector": "meta[name=\"description\"]",
+              "returnValue": "attribute",
+              "attribute": "content"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f7bbb96a-db83-4f9c-a9ec-cb31ce24a1c4",
+      "name": "Html Extract",
+      "type": "n8n-nodes-base.htmlExtract",
+      "typeVersion": 1,
+      "position": [
+        720,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Actuá como un consultor de marketing B2B, directo, humano y persuasivo. \n\nIDIOMA: La empresa está ubicada en {{ $json.Pais_Cleaned }}. Si el país es de habla hispana (Argentina, España, México, Chile, Colombia, Perú, Uruguay, Paraguay, Bolivia, Ecuador, Venezuela, u otro país hispanohablante), redactá el mail completo en español. Si el país es Estados Unidos, Reino Unido, o cualquier otro país que no sea de habla hispana, redactá el mail completo en inglés, con un tono profesional y persuasivo adaptado a ese mercado, manteniendo la misma estructura y reglas de abajo.\n\nRedactá un correo de ventas para la empresa {{ $json.Nombre_Empresa_Cleaned }} basada en esta información de su sitio web: \"{{ $json.descripcion_meta }}\".\n\nREGLAS DE FORMATO (Obligatorio):\n1. NO escribas etiquetas <html>, <head>, <body> ni doctype. Solo el contenido del mensaje.\n2. NO incluyas ningún botón, link de agendar, ni marcadores como [Tu Link].\n3. Usá etiquetas <p> para separar bien los párrafos.\n4. Usá la etiqueta <b> para resaltar frases clave, dolores o beneficios dentro del texto (máximo 3 o 4 palabras en negrita por párrafo) para que sea un mail escaneable.\n\nREGLAS DE CONTENIDO:\n1. Empezá saludando al equipo de {{ $json.Nombre_Empresa_Cleaned }} (si el mail es en inglés, usá un saludo natural en inglés, como \"Hi [team],\" o \"Hello [Company] team,\").\n2. Usá su descripción (\"{{ $json.descripcion_meta }}\") para hacer una mención específica y natural de por qué su trabajo actual es interesante.\n3. Propuesta: Ofrecé automatización de procesos para escalar eso que ya hacen bien.\n4. Cierre: Terminá con una pregunta abierta y directa para abrir conversación (ej: \"¿Les interesaría explorar si esto hace sentido para su operación actual?\", o su equivalente natural en inglés si corresponde).\n5. Firma: Cerrá con \"Saludos cordiales,\" y abajo \"El equipo de automatización\" (si el mail es en inglés, cerrá con \"Best regards,\" y \"The automation team\"). No dejes placeholders con corchetes en la firma.",
+        "batching": {}
+      },
+      "id": "462de377-c460-4546-bfed-0310d40360e7",
+      "name": "Chain Llm",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        928,
+        112
+      ],
+      "retryOnFail": false,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "id": "2df2b820-c280-443b-be12-c3e1f6b265d4",
+      "name": "Lm Chat Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        976,
+        336
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "b7h7k5zQVsCszqlj",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.text }}",
+        "options": {}
+      },
+      "id": "f806dbc8-6ac3-4563-bc37-de4b569c625d",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Merge').item.json.Email_Contacto_Cleaned }}",
+        "subject": "=propuesta para: {{ $('Code').item.json.Nombre_Empresa_Cleaned }}",
+        "message": "={{ $json.data }}",
+        "options": {}
+      },
+      "id": "9d066239-a956-465b-9dc4-a4079587901d",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        112
+      ],
+      "webhookId": "66276d7b-d1fe-40e4-be7e-d6e44523fa4b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "grogddClXxjgV5jB",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        112
+      ],
+      "id": "c90ca8b6-3397-482f-a997-2ef5c8a9ab79",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        384,
+        96
+      ],
+      "id": "5054ab2c-7df7-420e-9f4e-6af823fb1fdd",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        720,
+        112
+      ],
+      "id": "79478702-50c5-4002-8346-28e0455aca2b",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1g_OgeMVA17MlnqEmZ-Kr5XfqX2zuhOTdGXTJ7CH22o4",
+          "mode": "list",
+          "cachedResultName": "Log_Envios",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1g_OgeMVA17MlnqEmZ-Kr5XfqX2zuhOTdGXTJ7CH22o4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1g_OgeMVA17MlnqEmZ-Kr5XfqX2zuhOTdGXTJ7CH22o4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Empresa": "={{ $('Merge1').item.json.Nombre_Empresa_Cleaned }}",
+            "Email de Contacto": "={{ $('Merge1').item.json.Email_Contacto_Cleaned }}",
+            "Fecha de Envío": "={{ $now.setZone('America/Argentina/Cordoba').toFormat('dd/MM/yyyy HH:mm') }}",
+            "Cuerpo del Mensaje": "={{ $('Markdown').item.json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Empresa",
+              "displayName": "Empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email de Contacto",
+              "displayName": "Email de Contacto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha de Envío",
+              "displayName": "Fecha de Envío",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cuerpo del Mensaje",
+              "displayName": "Cuerpo del Mensaje",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1712,
+        112
+      ],
+      "id": "71eb2020-75cf-4a17-b0a3-0b5e57f26b92",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4FM8itw5Hq3Bwey6",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1vXC3mufIUrxM7a6HVbdgvufEuUmonUEpN--tt0PZSk8",
+          "mode": "list",
+          "cachedResultName": "Prospección Empresas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vXC3mufIUrxM7a6HVbdgvufEuUmonUEpN--tt0PZSk8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vXC3mufIUrxM7a6HVbdgvufEuUmonUEpN--tt0PZSk8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Merge1').item.json.row_number }}",
+            "Enviado": "Sí"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Nombre_Empresa",
+              "displayName": "Nombre_Empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Web",
+              "displayName": "Web",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email_Contacto",
+              "displayName": "Email_Contacto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1584,
+        -64
+      ],
+      "id": "26920f11-fbe2-49c2-a888-ad90909c8cf4",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4FM8itw5Hq3Bwey6",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "pythonNative",
+        "pythonCode": "output = []\n\nfor item in _items:\n    json_data = dict(item[\"json\"])\n    \n    if \"data\" in json_data and isinstance(json_data[\"data\"], str):\n        # Truncar el HTML a los primeros 50,000 caracteres\n        json_data[\"data\"] = json_data[\"data\"][:50000]\n    \n    output.append({\"json\": json_data})\n\nreturn output"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -112
+      ],
+      "id": "68415f52-9086-4f54-904d-9671147d0fe2",
+      "name": "Code in Python"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Html Extract": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chain Llm": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lm Chat Google Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Chain Llm",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Code in Python",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Chain Llm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python": {
+      "main": [
+        [
+          {
+            "node": "Html Extract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true
+  },
+  "versionId": "f479f707-59b1-4630-a777-6e3bb365a866",
+  "meta": {
+    "aiBuilderAssisted": true,
+    "builderVariant": "mcp",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e5166e0c08efe40e84465c4ff56c3a8963523d029169251af1c5d741e8bad40b"
+  },
+  "nodeGroups": [],
+  "id": "2QjBBeQscEphfOcB",
+  "tags": []
+}
